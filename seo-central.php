@@ -1,0 +1,4 @@
+<?php
+
+echo "SEO Central";
+?>
