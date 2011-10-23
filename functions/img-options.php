@@ -1,6 +1,6 @@
 <?php
 /*
-Imagine Frame Work
+Imagine Framework
 Framework uri: http://imagewize.com 	
 Description: This WordPress Framework will make it easy for users to SEO optimize, organize and  Socialize their WordPress theme. An ideal WordPress Theme to use as a parent theme
 Author: Jasper Frumau
