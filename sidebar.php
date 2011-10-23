@@ -1,13 +1,13 @@
-<?php global $dnet; ?>
+<?php global $img; ?>
 
 <div id="sidebar">
-	<?php if ($dnet->sideboxState() != 'true' ) ?>
+	<?php if ($img->sideboxState() != 'true' ) ?>
 	<?php if ( is_active_sidebar( 'normal_sidebar' )) echo "<ul>" ?>
 	<?php if ( !function_exists( 'dynamic_sidebar')|| !dynamic_sidebar( 'normal_sidebar' )) : ?>
 	<?php if(!is_front_page()) : ?>
 		<ul>
 			<li class="widget widget_recent_entries">
-			<h2 class="widgettitle"><?php _e( 'Interessante Links', 'dnet'); ?></h2>
+			<h2 class="widgettitle"><?php _e( 'Interessante Links', 'img'); ?></h2>
 			<?php
 			// Array opsplitsen in lostaande elementen
 			$bookm = explode("<br />",wp_list_bookmarks('title_li=&category_before=&category_after='));
@@ -31,7 +31,7 @@
 			</li>
 			<?php endif; ?>
 			<li class="widget widget_categories">
-				<h2 class="widgettitle"><?php _e( 'Categories', 'dnet'); ?></h2>
+				<h2 class="widgettitle"><?php _e( 'Categories', 'img'); ?></h2>
 				<?php
 				// Array opsplitsen in lostaande elementen
 				$cats = explode("<br />",wp_list_categories('title_li=&echo=0&depth=1&style=none'));

@@ -51,13 +51,15 @@ class imagine_options {
 		$this->pagehook = add_menu_page('Imagine Main Page', "Imagine", 'manage_options', 'img-options', array(&$this, 'on_show_page'), '', '10');
 		
 		// Add a submenu to the custom top-level menu:
-		    add_submenu_page('img-options', __('SEO Options','menu-test'), __('SEO Options','menu-test'), 'manage_options', 'seo', 		'mt_sublevel_page');
+		//$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function
+		    add_submenu_page('img-options', __('SEO Options'), __('SEO Options'), 'manage_options', 'seo-options', array(&$this,'seoconfig'));
 
 		    // Add a second submenu to the custom top-level menu:
 		    add_submenu_page('img-options', __('Test Sublevel 2','menu-test'), __('Test Sublevel 2','menu-test'), 'manage_options', 'sub-page2', 'mt_sublevel_page2');
 		//register  callback gets call prior your own page gets rendered
 		add_action('load-'.$this->pagehook, array(&$this, 'on_load_page'));
 	}
+		
 	
 	//will be executed if wordpress core detects this page has to be rendered
 	function on_load_page() {
@@ -75,6 +77,11 @@ class imagine_options {
 		add_meta_box('howto-metaboxes-contentbox-additional-2', 'Contentbox Additional 2 Title', array(&$this, 'on_contentbox_additional_2_content'), $this->pagehook, 'additional', 'core');
 	}
 	
+	// SEO Options Functionality
+	function seoconfig (){
+		echo "Horney as hell!";
+	}
+		
 	//executed to show the plugins complete admin page
 	function on_show_page() {
 		//we need the global screen column value to beable to have a sidebar in WordPress 2.8

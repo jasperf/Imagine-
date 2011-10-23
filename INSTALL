@@ -1,7 +1,7 @@
 Simple Installation Instructions:
 
 1. Unpack or unzip Imagewize.
-2. Upload the /dnet folder to your /wp-content/themes directory.
+2. Upload the /img folder to your /wp-content/themes directory.
 3. Login to your WordPress admin and click the Appearance menu.
 4. Click Themes.
 4. Click on the Imagewize theme to activate.

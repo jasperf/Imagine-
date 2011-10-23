@@ -7,7 +7,7 @@
 
 			var $themename = "IMG";
 			var $themeurl = "http://imagewize.com/";
-			var $shortname = "img_thmes";
+			var $shortname = "img_themes";
 			var $options = array();
 
 			/* PHP4 Compatible Constructor */
@@ -58,19 +58,19 @@
 			/* Output of the Admin Page */
 			function adminPage () {
 				// global $themename, $shortname, $options;
-				if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings saved!', 'dnet' ). '</strong></p></div>';
-				if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings reset.', 'dnet' ). '</strong></p></div>'; ?>
+				if ( $_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings saved!', 'img' ). '</strong></p></div>';
+				if ( $_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>' . $this->themename . __( ' settings reset.', 'img' ). '</strong></p></div>'; ?>
 
 <div id="v-options">
 	<div class="v-top clear">
-		<h1 class="v-trial"><?php echo $this->themename; ?> <?php _e( 'Opties', 'dnet' ); ?></h1>
+		<h1 class="v-trial"><?php echo $this->themename; ?> <?php _e( 'Opties', 'img' ); ?></h1>
 		<!-- <div class="v-logo"><a href="http://doede.net/">Doede.net www-Services</a></div> /-->
 	</div>
 	<div id="vop-header"><p><strong><?php _e( 'Need help?', 'img' ); ?></strong> <a href="http://wiki.doede.net/"><?php _e( 'Read the tutorials' , 'img'); ?></a> <?php _e( 'or visit the <a href="http://forum.doede.net/">support forums.</a>', 'img'); ?></p></div>
 	<div class="v-notice">
 		<h3><?php _e( 'Go PRO!', 'img' ); ?></h3>
 		<p><?php _e( 'U maakt gebruik van de gratis versie van Imagewize. Upgrade naar Imagewize PRO voor extra features, toegang tot toegewijde support, thema updates, een duidelijke thema handleidingen.', 'img'); ?></p>
-		<p><a href="http://themes.doede.net/"><?php _e( 'Leer meer over Imagewize PRO &rarr;', 'dnet' ); ?></a></p>
+		<p><a href="http://themes.doede.net/"><?php _e( 'Leer meer over Imagewize PRO &rarr;', 'img' ); ?></a></p>
 	</div>
 	<div id="vop-body">
 		<form method="post">
@@ -82,7 +82,7 @@
 							if ($i != 0) { ?>
 		<div class="v-save-button submit">
 			<input type="hidden" name="action" value="save" />
-			<input class="button-primary" type="submit" value="<?php _e( 'Save changes', 'dnet' ); ?>" name="save"/>
+			<input class="button-primary" type="submit" value="<?php _e( 'Save changes', 'img' ); ?>" name="save"/>
 		</div><!--end v-save-button-->
 	</div>
 </div><!--end v-option--><?php } ?>
@@ -148,7 +148,7 @@
 		<?php $pro = $this->options[$i]["pro"] ?>
 		<div class="v-field colorpicker clear <?php if ($pro == 'true' )echo 'pro' ?>">
 			<div class="v-field-d"><span><?php echo $this->options[$i]["desc"]; ?></span></div>
-			<label for="<?php echo $this->options[$i]["id"]; ?>"><?php echo $this->options[$i]["name"]; ?> <a href="javascript:return false;" onclick="toggleColorpicker (this, '<?php echo $this->options[$i]["id"]; ?>', 'open', '<?php _e( 'show color picker', 'dnet'); ?>', '<?php _e( 'hide color picker', 'dnet'); ?>')"><?php _e( 'show color picker', 'dnet'); ?></a></label>
+			<label for="<?php echo $this->options[$i]["id"]; ?>"><?php echo $this->options[$i]["name"]; ?> <a href="javascript:return false;" onclick="toggleColorpicker (this, '<?php echo $this->options[$i]["id"]; ?>', 'open', '<?php _e( 'show color picker', 'img'); ?>', '<?php _e( 'hide color picker', 'img'); ?>')"><?php _e( 'show color picker', 'img'); ?></a></label>
 			<div id="<?php echo $this->options[$i]["id"]; ?>_colorpicker" class="colorpicker_container"></div>
 			<input id="<?php echo $this->options[$i]["id"]; ?>" type="text" name="<?php echo $this->options[$i]["id"]; ?>" value="<?php echo (get_settings($this->options[$i]["id"]) != "") ? get_settings($this->options[$i]["id"]) : $this->options[$i]["std"]; ?>" />
 		</div><!--end v-field colorpicker-->
@@ -194,18 +194,18 @@
 				endfor;
 			?>
 					<div class="v-save-button submit">
-						<input type="submit" value="<?php _e( 'Save changes', 'dnet' ); ?>" name="save"/>
+						<input type="submit" value="<?php _e( 'Save changes', 'img' ); ?>" name="save"/>
 					</div><!--end v-save-button-->
 				</div>
 			</div>
 			<div class="v-saveall-button submit">
-				<input class="button-primary" type="submit" value="<?php _e( 'Save all changes', 'dnet' ); ?>" name="save"/>
+				<input class="button-primary" type="submit" value="<?php _e( 'Save all changes', 'img' ); ?>" name="save"/>
 			</div>
 			</form>
 			<div class="v-reset-button submit">
 				<form method="post">
 					<input type="hidden" name="action" value="reset" />
-					<input class="v-reset" type="submit" value="<?php _e( 'Reset all options', 'dnet' ); ?>" name="reset"/>
+					<input class="v-reset" type="submit" value="<?php _e( 'Reset all options', 'img' ); ?>" name="reset"/>
 				</form>
 			</div>
 

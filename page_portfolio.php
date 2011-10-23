@@ -30,7 +30,7 @@ Template Name: Portfolio page
 			<div class="entry page clear">
 				<?php the_content(); ?>
 			<div style="clear:both;"></div>
-				<?php edit_post_link(__( 'Edit', 'dnet')); ?>
+				<?php edit_post_link(__( 'Edit', 'img')); ?>
 				<?php wp_link_pages(); ?>
 			</div><!--end entry-->
 		<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>

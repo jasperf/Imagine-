@@ -1,10 +1,10 @@
-DNET is ready to be translated to your language. Please follow these simple instructions:
+img is ready to be translated to your language. Please follow these simple instructions:
 
-1. Download the latest language pack from http://github.com/jestro/dnet_languages (click the download button at the top).
+1. Download the latest language pack from http://github.com/jestro/img_languages (click the download button at the top).
 2. Unzip the package and find the .po and .mo files for your language.
-3. Create a /languages directory within your DNET theme directory or your DNET child theme directory and copy the .po and .mo files into that directory.
+3. Create a /languages directory within your img theme directory or your img child theme directory and copy the .po and .mo files into that directory.
 4. Define your language in your wp-config.php file.
 
-Please help with translating DNET!
+Please help with translating img!
 
-We have provided the dnet.po and dnet.mo files as a starting point for translating DNET into your language. If you have a completed translation and would like us to include it in the language pack please send your .po and .mo files to info {at} doede.net.
+We have provided the img.po and img.mo files as a starting point for translating img into your language. If you have a completed translation and would like us to include it in the language pack please send your .po and .mo files to info {at} doede.net.

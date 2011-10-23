@@ -21,7 +21,7 @@
 				<?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail( array(250,9999), array( 'class' => ' alignleft' )); ?>
 				</div>
 				
-				<?php the_content(__( 'read more...', 'dnet')); 
+				<?php the_content(__( 'read more...', 'img')); 
 						// $content = get_the_content(); 
 						// _e( $content );
 				?>
@@ -32,12 +32,12 @@
 							$plugincontent = str_replace(']]>', ']]&gt;', $plugincontent);
 							_e( $plugincontent );
 					?>
-					<?php edit_post_link(__( 'Edit', 'dnet')); */?>
+					<?php edit_post_link(__( 'Edit', 'img')); */?>
 					
 				
 					<div class="author" >
 					
-					<strong> <?php   printf(__( 'Published By %s', 'dnet'), get_the_author()); ?></strong> op <strong><?php the_time(__( 'l j F   Y', 'dnet')); ?></strong>
+					<strong> <?php   printf(__( 'Published By %s', 'img'), get_the_author()); ?></strong> op <strong><?php the_time(__( 'l j F   Y', 'img')); ?></strong>
 					<br>
 					<?php the_author_description();?>
 					</div>
@@ -47,7 +47,7 @@
 				</div>
 			</div><!--end entry-->
 			<div class="meta clear">
-				<p><?php _e( 'From', 'dnet' ); ?> &rarr; <?php the_category( ', '); ?></p>
+				<p><?php _e( 'From', 'img' ); ?> &rarr; <?php the_category( ', '); ?></p>
 			</div><!--end meta-->
 		</div><!--end post-->
 	<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
