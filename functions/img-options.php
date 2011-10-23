@@ -4,7 +4,7 @@ Imagine Framework
 Framework uri: http://imagewize.com 	
 Description: This WordPress Framework will make it easy for users to SEO optimize, organize and  Socialize their WordPress theme. An ideal WordPress Theme to use as a parent theme
 Author: Jasper Frumau
-Author URI: http://www.jasperfrumau.com
+Author URI: http://www.jasperfrumau.net
 Version: 1.3
 Based one: Metabox Showcase Plugin http://www.code-styling.de, Add meta box http://andrewferguson.net/2008/09/26/using-add_meta_box/, Add a Standard WordPress Meta-Box http://shibashake.com/wordpress-theme/standard-wordpress-metabox
 License: This code is licensed under the GPL v2.0 http://www.opensource.org/licenses/gpl-2.0.php
@@ -52,7 +52,7 @@ class imagine_options {
 		
 		// Add a submenu to the custom top-level menu:
 		//$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function
-		    add_submenu_page('img-options', __('SEO Options'), __('SEO Options'), 'manage_options', 'seo-options', array(&$this,'seoconfig'));
+		    add_submenu_page('img-options', __('SEO Options'), __('SEO Options'), 'manage_options', 'seo-options', array(&$this,'mySeoOptions'));
 
 		    // Add a second submenu to the custom top-level menu:
 		    add_submenu_page('img-options', __('Test Sublevel 2','menu-test'), __('Test Sublevel 2','menu-test'), 'manage_options', 'sub-page2', 'mt_sublevel_page2');
@@ -78,9 +78,8 @@ class imagine_options {
 	}
 	
 	// SEO Options Functionality
-	function seoconfig (){
-		echo "Horney as hell!";
-	}
+	require_once ('seo-options.php');
+
 		
 	//executed to show the plugins complete admin page
 	function on_show_page() {
