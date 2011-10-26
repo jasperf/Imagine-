@@ -38,12 +38,3 @@ add_meta_box('seo-sidebox-2', //Id
 				null); // object??
 				?>
 				</div>
-
-			</div>
-<?php
-function on_seo_sidebox_1_content (){
-		echo "One";
-}
-function on_seo_sidebox_2_content (){
-		echo "Two";
-}
