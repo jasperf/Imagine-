@@ -8,13 +8,13 @@
 //add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
 add_meta_box('seo-sidebox-1', //Id
 			__('Say Hello', 'seocentral'), //Title
-			 array(&$this, 'on_sidebox_1_content'), // Callback
+			 array(&$this, 'on_seo_sidebox_1_content'), // Callback
 			'seocentral', // Page
 			'side',
 			'core');
 add_meta_box('seo-sidebox-2', //Id
 			__('Say dfa', 'seocentral'), //Title
-			array(&$this, 'on_sidebox_2_content'), //callback
+			array(&$this, 'on_seo_sidebox_2_content'), //callback
 			'seocentral', //page
 			'side', //context
 			'core'); // Piority: low, high, core or default
@@ -40,3 +40,10 @@ add_meta_box('seo-sidebox-2', //Id
 				</div>
 
 			</div>
+<?php
+function on_seo_sidebox_1_content (){
+		echo "One";
+}
+function on_seo_sidebox_2_content (){
+		echo "Two";
+}
