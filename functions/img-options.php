@@ -203,6 +203,9 @@ function on_contentbox_1_content($data) {
 	function on_seo_sidebox_2_content (){
 			echo "Two";
 	}	
+	function on_seo_sidebox_3_content (){
+			echo "Three";
+	}
 }
 
 $my_imagine_options = new imagine_options();
