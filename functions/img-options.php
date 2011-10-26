@@ -4,7 +4,7 @@ Imagine Framework
 Framework uri: http://imagewize.com 	
 Description: This WordPress Framework will make it easy for users to SEO optimize, organize and  Socialize their WordPress theme. An ideal WordPress Theme to use as a parent theme
 Author: Jasper Frumau
-Author URI: http://www.jasperfrumau.net
+Author URI: http://www.jasperfrumau.com
 Version: 1.3
 Based one: Metabox Showcase Plugin http://www.code-styling.de, Add meta box http://andrewferguson.net/2008/09/26/using-add_meta_box/, Add a Standard WordPress Meta-Box http://shibashake.com/wordpress-theme/standard-wordpress-metabox
 License: This code is licensed under the GPL v2.0 http://www.opensource.org/licenses/gpl-2.0.php
@@ -52,7 +52,7 @@ class imagine_options {
 		
 		// Add a submenu to the custom top-level menu:
 		//$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function
-		    add_submenu_page('img-options', __('SEO Options'), __('SEO Options'), 'manage_options', 'seo-options', array(&$this,'mySeoOptions'));
+		    add_submenu_page('img-options', __('SEO Options'), __('SEO Options'), 'manage_options', 'seo-options', array(&$this,'seoconfig'));
 
 		    // Add a second submenu to the custom top-level menu:
 		    add_submenu_page('img-options', __('Test Sublevel 2','menu-test'), __('Test Sublevel 2','menu-test'), 'manage_options', 'sub-page2', 'mt_sublevel_page2');
@@ -68,7 +68,9 @@ class imagine_options {
 		wp_enqueue_script('wp-lists');
 		wp_enqueue_script('postbox');
 
-		//add several metaboxes now, all metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
+		//add several metaboxes now, all metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing
+		//special to do therefore
+		//add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
 		add_meta_box('howto-metaboxes-sidebox-1', 'Sidebox 1 Title', array(&$this, 'on_sidebox_1_content'), $this->pagehook, 'side', 'core');
 		add_meta_box('howto-metaboxes-sidebox-2', 'Sidebox 2 Title', array(&$this, 'on_sidebox_2_content'), $this->pagehook, 'side', 'core');
 		add_meta_box('howto-metaboxes-contentbox-1', 'Contentbox 1 Title', array(&$this, 'on_contentbox_1_content'), $this->pagehook, 'normal', 'core');
@@ -78,8 +80,9 @@ class imagine_options {
 	}
 	
 	// SEO Options Functionality
-	require_once ('seo-options.php');
-
+	function seoconfig() {
+		require ('seo-central.php');
+	}
 		
 	//executed to show the plugins complete admin page
 	function on_show_page() {
@@ -194,7 +197,15 @@ function on_contentbox_1_content($data) {
 			<p>requires at least WordPress 2.7 version, supports new box management of WordPress 2.8</p>
 		<?php
 	}
-	
+	function on_seo_sidebox_1_content (){
+			echo "One";
+	}
+	function on_seo_sidebox_2_content (){
+			echo "Two";
+	}	
+	function on_seo_sidebox_3_content (){
+			echo "Three";
+	}
 }
 
 $my_imagine_options = new imagine_options();
