@@ -40,19 +40,3 @@ add_meta_box('seo-sidebox-2', //Id
 				</div>
 
 			</div>
-<?php
-			
-//Content inside box called using callback
-	function seocentral_helloworld_meta_box(){
-	?>
-		Hello, world!
-		<?php
-		}
-
-		//Content inside box called using callback
-			function on_sidebox_1_content(){
-			?>
-				Hello, world!
-				<?php
-				}
-?>
