@@ -8,7 +8,7 @@
 //add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
 add_meta_box('seo-sidebox-1', //Id
 			__('Say Hello', 'seocentral'), //Title
-			 array(&$this, 'on_seo_sidebox_1_content'), // Callback
+			 array(&$this, 'on_seo_sidebox_1_content'), // Callback to method in img-options
 			'seocentral', // Page
 			'side',
 			'core');
@@ -38,3 +38,5 @@ add_meta_box('seo-sidebox-2', //Id
 				null); // object??
 				?>
 				</div>
+
+			</div>
