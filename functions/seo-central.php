@@ -4,6 +4,10 @@
 *Inspiration http://andrewferguson.net/2008/09/26/using-add_meta_box/
 */
 
+//ensure, that the needed javascripts been loaded to allow drag/drop, expand/collapse and hide/show of boxes
+wp_enqueue_script('common');
+wp_enqueue_script('wp-lists');
+wp_enqueue_script('postbox');
 
 //add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
 
@@ -35,7 +39,7 @@ add_meta_box('seo-sidebox-2', //Id
 						null); 
 	?>
 </div>
-<!-- Left Column -->
+<!-- Whole width Column -->
 <div id="post-body" class="has-sidebar">
 <div id="post-body-content" class="has-sidebar-content">
 	<?php
@@ -55,3 +59,13 @@ add_meta_box('seo-sidebox-2', //Id
 				</div>
 
 			</div>
+			<script type="text/javascript">
+				//<![CDATA[
+				jQuery(document).ready( function($) {
+					// close postboxes that should be closed
+					$('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+					// postboxes setup
+					postboxes.add_postbox_toggles('<?php echo 'seocentral'; ?>');
+				});
+				//]]>
+			</script>
