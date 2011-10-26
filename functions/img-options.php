@@ -194,6 +194,13 @@ function on_contentbox_1_content($data) {
 			<p>requires at least WordPress 2.7 version, supports new box management of WordPress 2.8</p>
 		<?php
 	}
+
+	function on_seo_sidebox_1_content (){
+				echo "One";
+	}
+	function on_seo_sidebox_2_content (){
+			echo "Two";
+	}
 	
 }
 
