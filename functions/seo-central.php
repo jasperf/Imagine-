@@ -32,7 +32,6 @@ add_meta_box('seo-sidebox-2', //Id
 									
 //do_meta_boxes('page', 'context', 'object') ?>
 <div class="wrap">
-<<<<<<< HEAD
 <!-- Main two column box after wrapper -->
 	<div id="post-stuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
 
@@ -55,34 +54,6 @@ add_meta_box('seo-sidebox-2', //Id
 				</div>
 				</div>
 			</div>
-=======
-	<div id="post-stuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
-<div id="side-info-column" class="inner-sidebar">
-	<?php do_meta_boxes('seocentral',
-	 					'normal',
-						null); 
-	?>
-</div>
-<!-- Whole width Column -->
-<div id="post-body" class="has-sidebar">
-<div id="post-body-content" class="has-sidebar-content">
-	<?php
-	do_meta_boxes('seocentral', // page or name box as defined
-				'side', //context side
-				null); // object??
-				?>
-				</div>
-				</div>
-<div class="metabox-holder has-right-sidebar">
-<div id="side-info-column" class="inner-sidebar">
-	<?php
-	do_meta_boxes('seocentral', // page
-				'side', //context
-				null); // object??
-				?>
-				</div>
-
->>>>>>> ceb645efe9f50b0a028431134d37f7f5ac8614d8
 			</div>
 			<script type="text/javascript">
 				//<![CDATA[
