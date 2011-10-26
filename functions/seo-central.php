@@ -6,6 +6,13 @@
 
 
 //add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
+
+add_meta_box('seo-sidebox-zero', //Id
+			__('Say Hello', 'seocentral'), //Title
+			 array(&$this, 'on_seo_sidebox_3_content'), // Callback to method in img-options
+			'seocentral', // Page
+			'normal',
+			'core');
 add_meta_box('seo-sidebox-1', //Id
 			__('Say Hello', 'seocentral'), //Title
 			 array(&$this, 'on_seo_sidebox_1_content'), // Callback to method in img-options
@@ -23,6 +30,14 @@ add_meta_box('seo-sidebox-2', //Id
 <div class="wrap">
 	<div id="post-stuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
 <div id="side-info-column" class="inner-sidebar">
+	<?php do_meta_boxes('seocentral',
+	 					'normal',
+						null); 
+	?>
+</div>
+<!-- Left Column -->
+<div id="post-body" class="has-sidebar">
+<div id="post-body-content" class="has-sidebar-content">
 	<?php
 	do_meta_boxes('seocentral', // page or name box as defined
 				'side', //context side
