@@ -5,10 +5,15 @@
 */
 
 //ensure, that the needed javascripts been loaded to allow drag/drop, expand/collapse and hide/show of boxes
-wp_enqueue_script('common');
-wp_enqueue_script('wp-lists');
-wp_enqueue_script('postbox');
-
+function my_scripts_method() {
+		wp_enqueue_script('jquery'); // For jQuery Usage
+		wp_enqueue_script('common');
+		wp_enqueue_script('wp-lists');
+		wp_enqueue_script('postbox');
+		wp_enqueue_script('jquery-ui-draggable');
+		wp_enqueue_script('jquery-ui-droppable');
+		}
+		add_action('admin_init',  'my_scripts_method');
 //add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
 
 add_meta_box('seo-sidebox-zero', //Id
@@ -29,7 +34,7 @@ add_meta_box('seo-sidebox-2', //Id
 			'seocentral', //page
 			'side', //context
 			'core'); // Piority: low, high, core or default
-									
+								
 //do_meta_boxes('page', 'context', 'object') ?>
 <div class="wrap">
 <!-- Main two column box after wrapper -->
