@@ -4,17 +4,7 @@
 *Inspiration http://andrewferguson.net/2008/09/26/using-add_meta_box/
 */
 
-//ensure, that the needed javascripts been loaded to allow drag/drop, expand/collapse and hide/show of boxes
-function my_scripts_method() {
-		wp_enqueue_script('jquery'); // For jQuery Usage
-		wp_enqueue_script('common');
-		wp_enqueue_script('wp-lists');
-		wp_enqueue_script('postbox');
-		wp_enqueue_script('jquery-ui-draggable');
-		wp_enqueue_script('jquery-ui-droppable');
-		}
-		add_action('admin_init',  'my_scripts_method');
-//add_meta_box( $id, $title, $callback, $page, $context, $priority, $callback_args );
+global $screen_layout_columns;
 
 add_meta_box('seo-sidebox-zero', //Id
 			__('Say Hello', 'seocentral'), //Title
@@ -34,39 +24,38 @@ add_meta_box('seo-sidebox-2', //Id
 			'seocentral', //page
 			'side', //context
 			'core'); // Piority: low, high, core or default
-								
 //do_meta_boxes('page', 'context', 'object') ?>
-<div class="wrap">
-<!-- Main two column box after wrapper -->
-	<div id="post-stuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
-
-<!-- Whole width Column -->
-<div id="post-body" class="has-sidebar">
-<div id="post-body-content" class="has-sidebar-content">
-	<?php
-	do_meta_boxes('seocentral', // page or name box as defined
-				'normal', //context side
-				null); // object??
-				?>
-				</div>
-<div class="has-right-sidebar">
-<div id="side-info-column" class="inner-sidebar">
-	<?php
-	do_meta_boxes('seocentral', // page
-				'side', //context
-				null); // object??
-				?>
-				</div>
-				</div>
-			</div>
-			</div>
+<div id="howto-metaboxes-general" class="wrap">
+  <h2>SEO Options</h2>
+  <form action="admin-post.php" method="post">
+  <div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
+    <div id="side-info-column" class="inner-sidebar">
+<?php
+do_meta_boxes('seocentral', // page or name box as defined
+'normal', //context side
+null); // object??
+?>
+    </div>
+    <div id="post-body" class="has-sidebar">
+      <div id="post-body-content" class="has-sidebar-content">
+<?php
+do_meta_boxes('seocentral', // page
+'side', //context
+null); // object??
+?>
+      </div>
+    </div>
+	<br class="clear"/>
+  </div>
+  </form>
+</div>
 			<script type="text/javascript">
 				//<![CDATA[
 				jQuery(document).ready( function($) {
 					// close postboxes that should be closed
 					$('.if-js-closed').removeClass('if-js-closed').addClass('closed');
 					// postboxes setup
-					postboxes.add_postbox_toggles('<?php echo 'seocentral'; ?>');
+			postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>');
 				});
 				//]]>
 			</script>
