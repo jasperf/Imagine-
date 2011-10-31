@@ -189,7 +189,9 @@ h1#title a:hover, div#title a:hover {
 	border-radius:9px;
 	-moz-border-radius:9px;
 	-webkit-border-radius:09px;
-	background:#015367;
+	background: -moz-linear-gradient(center top , #A9A9A9, #7A7A7A) repeat;
+	background: -webkit-gradient(linear, center top, center bottom , from(#A9A9A9), to(#7A7A7A)) repeat;
+	background: -ms-gradient(center top , #A9A9A9, #7A7A7A) repeat;
 }
 div#navigation {
 	margin:0;
@@ -210,7 +212,7 @@ div#subnavigation {
 }
 .nav, .nav ul {
 	line-height: 40px;
-	padding: 0;
+	padding: 5px 0 0 0;
 	margin: 0;
 	width: 100%;
 }
@@ -267,7 +269,7 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
-	background: #04819E;
+	background: none;
 	color: #000;
 }
 
