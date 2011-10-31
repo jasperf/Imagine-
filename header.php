@@ -71,6 +71,7 @@
 		
 		<div class="wrapper">
 			<div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"></a></h1></div>
+			<div id="menuwrapper">
 			<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
 						  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
 					<?php } 
@@ -80,11 +81,17 @@
 								</ul></div><!--end navigation-->
 
 					<?php	} ?>
-
+					<?php if ( has_nav_menu( 'secondary-menu' ) ) { ?>
+								  <?php wp_nav_menu(array('theme_location' => 'secondary-menu', 'container_id' => 'subnavigation', 'menu_class' => 'nav')); ?>
+							<?php } 
+								 else { ?>
+									
+							<?php	} ?>
+						</div> <!-- End Menu wrapper -->
 			
 		</div><!--end wrapper-->
 	</div><!--end header-->
 <div class="content-background">
-	<div class="wrapper">
+	<div class="contentwrapper">
 		<div class="notice"></div>
 		<div id="content">

@@ -209,5 +209,9 @@ function on_contentbox_1_content($data) {
 }
 
 $my_imagine_options = new imagine_options();
+//load scripts again for SEO Options
+wp_enqueue_script('common');
+wp_enqueue_script('wp-lists');
+wp_enqueue_script('postbox');
 
 ?>

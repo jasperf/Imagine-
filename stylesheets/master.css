@@ -24,7 +24,7 @@ body {
 	font: 62.5% Tahoma,Arial,Helvetica,Sans-serif;
 	color: #444;
 	line-height: 2.2em;
-	background: #f9f7f5;
+	background: #E0E0E0;
 	min-width: 960px;
 }
 a:link, a:visited { color: #4265a7; }
@@ -38,13 +38,29 @@ a:hover { color: #993333; }
 	margin: 0 auto;
 	text-align: left;
 }
-#content{
-	float: left;
-	width: 688px;
-	padding: 0 0 30px 0;
+
+.contentwrapper{
+	width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+	background:#FFFFFF;
+	margin: 0 auto 30px auto;
 }
-/*.content-background { background: url(../images/content-background.gif) repeat-x top left; }
-*/
+
+body.home #content{
+	float: left;
+	width: 600px;
+	padding:0 0 0 10px;
+	background:#FFFFFF;
+}
+
+.page #content {
+	width:1000px;
+	float: left;
+	padding:0 0 0 10px;
+	background:#FFFFFF;
+}
+
 #sidebar {
 	float: right;
 	padding-bottom: 30px;
@@ -88,45 +104,15 @@ div.skip-content { display: none; }
 #header {
 	width: 100%;
 	border-bottom: 1px solid #ede7e0;
-	/*background: #443B31 url(../images/nav-background.gif) repeat-x bottom left;*/
-	background:  url('../images/headers/header-blog.jpg') repeat-x bottom left; /* abbas */
 	width:1000px;
-	height:177px;
+	/*height:177px;*/
 	margin:0 auto;
 }
 
 .home #header, .search #header {
-	background:  url('../images/headers/header-home.jpg') repeat-x bottom left;
 }
-/*
-.page-id-204 #header {
-	background:  url('../images/headers/header-services.jpg') repeat-x bottom left;
-}
-*/
 
 .blog #header, .single #header, .category #header, .archive #header, .error404 #header {
-	background:  url('../images/headers/header-blog.jpg') repeat-x bottom left;
-}
-
-
-.page-id-2 #header {
-background:  url('../images/headers/header-contact.jpg') repeat-x bottom left;
-}
-.page-id-571 #header {
-background:  url('../images/headers/header-home.jpg') repeat-x bottom left;
-}
-.page-id-7 #header {
-background:  url('../images/headers/header-contact.jpg') repeat-x bottom left;
-}
-.page-id-4 #header {
-	background:  url('../images/headers/header-portfolio.jpg') repeat-x bottom left;
-}
-.page-id-3 #header {
-	background:  url('../images/headers/header-wij.jpg') repeat-x bottom left;
-}
-
-.page-id-6 #header{
-	background:  url('../images/headers/header-services.jpg') repeat-x bottom left;
 }
 
 #follow {
@@ -158,7 +144,7 @@ background:  url('../images/headers/header-contact.jpg') repeat-x bottom left;
 #follow dd a.facebook { height: 60px;width: 45px; padding-left: 19px; background: url(../images/follow/facebook-icon.png) no-repeat 0 .15em; }
 
 h1#title, div#title {
-	float: left;
+	/*float: left;*/
 	padding: 15px 0;
 	font-size: 3em;
 	font-weight: bold;
@@ -166,8 +152,8 @@ h1#title, div#title {
 }
 
 div#title {
-	width:292px;
-	height:98px;
+	width:200px;
+	height:50px;
 	margin:0px 0 0 10px;
 	background-repeat:no-repeat;
 	
@@ -196,10 +182,26 @@ h1#title a:hover, div#title a:hover {
 	line-height: 50px;
 }
 
-/*Nav
+/*Main Navigation and Secondary Navigation
 ---------------------------------------*/
 
-div#navigation {margin:0 0 0 305px;padding-top:120px;} /*320 before*/
+#menuwrapper {
+	border-radius:9px;
+	-moz-border-radius:9px;
+	-webkit-border-radius:09px;
+	background:#015367;
+}
+div#navigation {
+	margin:0;
+	padding:0;
+	height:50px;
+	}
+
+div#subnavigation {
+		margin:0;
+		padding:0;
+		height:50px;
+		}
 .nav {
 	width: 100%;
 	font-size: 1.9em;
@@ -207,14 +209,13 @@ div#navigation {margin:0 0 0 305px;padding-top:120px;} /*320 before*/
 	font-weight:bold;
 }
 .nav, .nav ul {
-	float: left;
 	line-height: 40px;
 	padding: 0;
 	margin: 0;
 	width: 100%;
 }
 
-li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;} /*8 before*/
+li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 
 .nav a {
 	display: block;
@@ -223,11 +224,8 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;} /*8 before*/
 	padding: 0px 20px;
 }
 
-
 .nav li {
 	float: left;
-/*	border-right: 1px solid #e3e0d5;
-*/
 }
 .nav:first-child { /*border-left: 1px solid #e3e0d5;*/ }
 .nav ul {
@@ -235,6 +233,7 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;} /*8 before*/
 	left: -999em;
 	height: auto;
 	width: 151px;
+	margin:5px 0 0 0;
 	font-weight: normal;
 	line-height: 20px;
 	border: 0;
@@ -268,7 +267,7 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;} /*8 before*/
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
-	background: #fff;
+	background: #04819E;
 	color: #000;
 }
 
@@ -305,18 +304,11 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;} /*8 before*/
 	color:#c71784;
 }
 
-#header .nav .current_page_item a { color: #4265a7; }
-.page-id-6 #header .nav .current_page_item a { color: #c9c439; }
-.page-id-7 #header .nav .current_page_item a { color: #C60384; }
-.page-id-4 #header .nav .current_page_item a { color: #FF0000; }
-.page-id-2 #header .nav .current_page_item a { color: #00FF00; }
-.page-id-13 #header .nav .current_page_item a { color: #006600; }
-.page-id-15 #header .nav .current_page_item a { color: #CC0066; }
-.page-id-3 #header .nav .current_page_item a { color: #63BB53; }
-.page-id-4 #header .nav .current_page_item a { color: #F68121; }
+#header .nav .current_page_item a { color: #206676; }
 
 .archive #header .nav .current_page_parent a{ background: #fff;	color:#00b7e3;} 
 .single #header .nav .current_page_parent a{ background: #fff;	color:#00b7e3;} 
+
 
 /* Custom Post Type Not in Use as of Yet*/
 .single-portfolio #header .nav .current_page_parent a{ background: #63BB45;	color:#fff;} 
@@ -331,6 +323,7 @@ div.notice {
 	display: block;
 	padding: 20px 0;
 	font-size: 1.6em;
+	background:#E0E0E0;
 }
 div.notice strong { color: #2f2922; }
 div.notice div {
@@ -345,7 +338,8 @@ div.notice div h2 {
 
 /*Page/Post Styling
 ------------------------------------------------------------ */
-.post { margin-bottom: 30px; }
+.post { padding: 30px; }
+
 /*Post Header
 ---------------------------------------*/
 .post-header {
@@ -448,7 +442,14 @@ blockquote {
 	padding: 10px 0;
 	font-size: 1.3em;
 }
-.index { padding: 0; }
+
+.index { 
+	padding:10px;
+	width:980px;
+	height:30px;
+	background:#FFFFFF;
+ }
+
 /*Post Footer
 ---------------------------------------*/
 .post-footer { margin-left: 131px; }
@@ -690,7 +691,7 @@ ul li.widget ul li ul li { padding: 1px 0 0 0; }
 #footer {
 	padding: 30px;
 /*	border-top: 10px solid #ded6d4;*/
-	background: #989a97;
+	background: #206676;
 	margin:0 auto;
 	width:940px;
 	color: #fff;
@@ -969,6 +970,7 @@ padding:4px 8px;
 	float:left;
 	font-size:1.2em;
 	margin:0 0 0 5px;
+	background:#FFFFFF;
 }
 #contact-us-box h2 {
 	font-size:1.5em;
