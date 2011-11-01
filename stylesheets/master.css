@@ -44,7 +44,13 @@ a:hover { color: #993333; }
 	margin: 0 auto;
 	text-align: left;
 	background:#FFFFFF;
-	margin: 0 auto 30px auto;
+	margin: 30px auto;
+	border-style:solid;
+	border-color:#A9A9A9;
+	border-width:1px;
+	border-radius:9px;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
 }
 
 body.home #content{
@@ -188,7 +194,7 @@ h1#title a:hover, div#title a:hover {
 #menuwrapper {
 	border-radius:9px;
 	-moz-border-radius:9px;
-	-webkit-border-radius:09px;
+	-webkit-border-radius:9px;
 	background: -moz-linear-gradient(center top , #A9A9A9, #7A7A7A) repeat;
 	background: -webkit-gradient(linear, center top, center bottom , from(#A9A9A9), to(#7A7A7A)) repeat;
 	background: -ms-gradient(center top , #A9A9A9, #7A7A7A) repeat;
@@ -325,7 +331,6 @@ div.notice {
 	display: block;
 	padding: 20px 0;
 	font-size: 1.6em;
-	background:#E0E0E0;
 }
 div.notice strong { color: #2f2922; }
 div.notice div {
