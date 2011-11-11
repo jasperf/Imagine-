@@ -3,11 +3,7 @@
 	<?php while (have_posts()) : the_post(); ?>
 	<?php //echo add_smartsharing();?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<div class="post-header">
-				<div class="tags"><?php the_tags( '<span>Tags</span> <p>', ', ', '</p>'); ?></div>
-				<h1><?php the_title(); ?></h1>
-				
-			</div><!--end post header-->
+			
 			<div class="entry clear">
 			<iframe src="http://www.facebook.com/plugins/like.php?&locale=nl_NL&href=<?php echo urlencode(get_permalink($post->ID)); ?>&amp;layout=standard&amp;show_faces=false&amp;width=350&amp;action=recommend&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:350px; height:25px"></iframe>
 			<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
@@ -16,7 +12,11 @@
 			      data-via="jasperfrumau"
 			      data-text="<?php the_title(); ?>"
 			      data-count="horizontal">Tweet</a>
-			
+					<div class="post-header">
+						<div class="tags"><?php the_tags( '<span>Tags</span> <p>', ', ', '</p>'); ?></div>
+						<h1><?php the_title(); ?></h1>
+
+					</div><!--end post header-->
 				<div id = "featureimage">
 				<?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail( array(250,9999), array( 'class' => ' alignleft' )); ?>
 				</div>
@@ -26,13 +26,6 @@
 						// _e( $content );
 				?>
 				<div id = "singlecontent" class ="alignleft" >
-					<?php /*  
-							$plugincontent = "";
-							$plugincontent = apply_filters('the_content', $plugincontent);
-							$plugincontent = str_replace(']]>', ']]&gt;', $plugincontent);
-							_e( $plugincontent );
-					?>
-					<?php edit_post_link(__( 'Edit', 'img')); */?>
 					
 				
 					<div class="author" >
@@ -55,5 +48,4 @@
 	<?php else : ?>
 	<?php endif; ?>
 </div><!--end content-->
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

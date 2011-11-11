@@ -285,8 +285,8 @@ li.current-menu-ancestor a {
 
 #header .nav .current_page_item a { color: #EF3937; }
 
-.archive #header .nav .current_page_parent a{ background: #fff;	color:#00b7e3;} 
-.single #header .nav .current_page_parent a{ background: #fff;	color:#00b7e3;} 
+.archive #header .nav .current_page_parent a{ background: #fff;	color:#EF3937;} 
+.single #header .nav .current_page_parent a{ background: #fff;	color:#EF3937;} 
 
 
 /* Custom Post Type Not in Use as of Yet*/
@@ -467,10 +467,11 @@ blockquote {
 	color: #beaa99;
 }
 .tags a { color: #beaa99; }
+
 .post-header h1 {
-	margin-left: 131px;
 	padding-bottom: 4px;
 	font-size: 2.2em;
+	width:600px;
 	}
 .meta {
 	border-top: 1px solid #efeae4;
