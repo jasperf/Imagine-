@@ -364,6 +364,7 @@ div.post-header div.date {
 
 .single .entry {
 	width:490px;
+	margin: 0 0 0 10px;
 }
 
 .entry p { margin-bottom: 10px; }
@@ -478,7 +479,7 @@ blockquote {
 	margin-top: 10px;
 	padding-top: 5px;
 	font-size: 1.2em;
-	text-align: right;
+	text-align: left;
 	color: #666;
 }
 /*Comments
@@ -489,6 +490,7 @@ blockquote {
 	display: block;
 	padding: 30px 0 5px 0;
 	font-weight: bold;
+	margin:0 0 0 10px;
 }
 .comment-number span {
 	font-size: 1.3em;
@@ -544,12 +546,14 @@ div.c-head {
 div.reply { padding-bottom: 10px; }
 div.reply a:link, div.reply a:visited { color: #beaa99; border:1px solid #EFEAE4; background:#EFEAE4; }
 input.commentbutton {  color: #beaa99; border:1px solid #EFEAE4; background:#EFEAE4;	} 
+
 /*Form
 ---------------------------------------*/
+
 form#commentform { margin: 0 0 20px 131px; }
 #respond { font-size: 1.3em; }
 h4#postcomment {
-	margin: 20px 0;
+	margin: 20px 0 20px 10px;
 	padding: 5px 0 0 0;
 	color: #423c37;
 	border-top: 1px solid #efeae4;
