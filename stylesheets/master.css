@@ -363,7 +363,7 @@ div.post-header div.date {
 }
 
 .single .entry {
-	width:490px;
+	width:600px;
 	margin: 0 0 0 10px;
 }
 
@@ -482,6 +482,11 @@ blockquote {
 	text-align: left;
 	color: #666;
 }
+
+.single .meta {
+	width:600px;
+}
+
 /*Comments
 ------------------------------------------------------------ */
 /*Top
