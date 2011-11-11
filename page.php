@@ -12,5 +12,5 @@
 	<?php else : ?>
 	<?php endif; ?>
 </div><!--end content-->
-<?php get_sidebar(); ?>
+<div style="clear:left;"></div>
 <?php get_footer(); ?>

@@ -4,7 +4,7 @@
 	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="post-header">
 			<div class="date"><?php the_time(__( 'M j', 'img')); ?> <span><?php the_time( 'y' ); ?></span></div>
-			<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+			<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?>	</a></h2>
 			<div class="author"><?php printf(__( 'by %s', 'img'), get_the_author()); ?></div>
 		</div><!--end post header-->
 		<div class="entry clear">
@@ -45,7 +45,8 @@
 			<div class="comments"><?php comments_popup_link(__( 'Leave a comment', 'img'), __( '1 Comment', 'img'), __ngettext ( '% Comment', '% Comments', get_comments_number (),'img')); ?></div>
 		</div><!--end post footer-->
 	</div><!--end post-->
-	<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
+				<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
+
 	<div class="navigation index">
 		<div class="alignleft"><?php next_posts_link(__( '&laquo; Oudere berichten', 'img')); ?></div>
 		<div class="alignright"><?php previous_posts_link(__( 'Recentere berichten &raquo;', 'img')); ?></div>
@@ -53,5 +54,4 @@
 	<?php else : ?>
 	<?php endif; ?>
 </div><!--end content-->
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
