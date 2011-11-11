@@ -152,6 +152,7 @@ div#title {
 }
 h1#title a:link, h1#title a:visited, div#title a:link, div#title a:visited {
 	color: #7A7A7A;
+	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
 	width:400px;
 	height:70px;
 	display:block;
@@ -235,13 +236,15 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 	border: 0;
 	background:none;
 }
-	
+
+/* Sub Menu
+------------------------------------ */	
 .nav li li {
 	width: 149px;
 	border-bottom: 1px solid #e3e0d5;
 	border-left: 1px solid #e3e0d5;
 	border-right: 1px solid #e3e0d5;
-	background: #f3efeb;
+	background: #FFF;
 }
 .nav li li li { border-left: none; }
 .nav li li a {
@@ -596,7 +599,7 @@ ol.pinglist {
 ---------------------------------------*/
 #content .entry.page {
 	margin: 0;
-	width: 650px; /*628*/
+	width: 600px;
 }
 h1.pagetitle, h2.pagetitle {
 	border-top: 1px solid #efeae4;
@@ -604,6 +607,15 @@ h1.pagetitle, h2.pagetitle {
 	padding-top: 20px;
 	font-size: 2.2em;
 }
+
+/* Pages Sidebar
+----------------------------------------*/
+
+.page-sidebar {
+	float:left;
+	margin:0 0 10px 0;
+}
+
 /*Archives List
 ---------------------------------------*/
 .entries ul { font-size: 1.3em; }
@@ -628,9 +640,9 @@ h1.pagetitle, h2.pagetitle {
 	background: #f0ebe6;
 }
 h2.widgettitle {
-	margin: 25px 0 10px 0;
+	margin: 20px 0 10px 0;
 	padding-bottom: 3px;
-	font-size: 1.7em;
+	font-size: 2em;
 	/*border-bottom: 1px solid #dfdad5;*/
 	list-style-type: none;
 	color: #555;

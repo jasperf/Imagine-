@@ -30,17 +30,13 @@ if (is_file(STYLESHEETPATH . '/functions/comments.php'))
 else
 	require_once(TEMPLATEPATH . '/functions/comments.php');
 
-//if (is_file(STYLESHEETPATH . '/functions/img-extend.php'))
-//	require_once(STYLESHEETPATH . '/functions/img-extend.php');
-//else
-//	require_once(TEMPLATEPATH . '/functions/img-extend.php');
 
 // Dynamic Sidebars
 if ( function_exists( 'register_sidebar_widget' ))
 		register_sidebar(array(
 				'name'=> __( 'Sidebar', 'img'),
 				'id' => 'normal_sidebar',
-				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+				'before_widget' => '<div class="page-sidebar"><li id="%1$s" class="widget %2$s">',
 				'after_widget' => '</li>',
 				'before_title' => '<h2 class="widgettitle">',
 				'after_title' => '</h2>',
