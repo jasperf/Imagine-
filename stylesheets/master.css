@@ -206,11 +206,11 @@ div#subnavigation {
 .nav, .nav ul {
 	line-height: 40px;
 	padding: 5px 0 0 0;
-	margin: 0;
+	margin: 0 0 0 10px;
 	width: 100%;
 }
 
-li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
+li.page_item, li.menu-item-type-post_type, li.menu-item-type-custom {margin:0 8px 0 8px;}
 
 .sub-menu li.menu-item {margin:0;}
 
@@ -220,6 +220,10 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 	text-decoration: none;
 	padding: 0px 20px;
 }
+
+li.current-menu-ancestor a {
+	color:#EF3937;
+} 
 
 .nav li {
 	float: left;
@@ -239,6 +243,7 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 
 /* Sub Menu
 ------------------------------------ */	
+
 .nav li li {
 	width: 149px;
 	border-bottom: 1px solid #e3e0d5;
@@ -263,11 +268,11 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 	color: #000;
 }
 .nav .current_page_parent, .single, nav a, .nav .current_page_ancestor, .nav .current-cat-parent {
-	background: #fff;
+	background: #CBCBCB;
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
-	background: none;
+	background: #CBCBCB;
 	color: #000;
 }
 
