@@ -211,6 +211,8 @@ div#subnavigation {
 
 li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 
+.sub-menu li.menu-item {margin:0;}
+
 .nav a {
 	display: block;
 	color: #fff;
@@ -221,18 +223,19 @@ li.page_item, li.menu-item-type-post_type {margin:0 8px 0 8px;}
 .nav li {
 	float: left;
 }
-.nav:first-child { /*border-left: 1px solid #e3e0d5;*/ }
+
 .nav ul {
 	position: absolute;
 	left: -999em;
 	height: auto;
 	width: 151px;
-	margin:5px 0 0 0;
+	margin: 0;
 	font-weight: normal;
 	line-height: 20px;
 	border: 0;
-	border-top: 1px solid #e3e0d5;
+	background:none;
 }
+	
 .nav li li {
 	width: 149px;
 	border-bottom: 1px solid #e3e0d5;
