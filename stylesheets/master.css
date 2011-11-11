@@ -490,7 +490,7 @@ blockquote {
 	display: block;
 	padding: 30px 0 5px 0;
 	font-weight: bold;
-	margin:0 0 0 10px;
+	margin:0 0 0 30px;
 }
 .comment-number span {
 	font-size: 1.3em;
@@ -553,7 +553,7 @@ input.commentbutton {  color: #beaa99; border:1px solid #EFEAE4; background:#EFE
 form#commentform { margin: 0 0 20px 131px; }
 #respond { font-size: 1.3em; }
 h4#postcomment {
-	margin: 20px 0 20px 10px;
+	margin: 20px 0 20px 30px;
 	padding: 5px 0 0 0;
 	color: #423c37;
 	border-top: 1px solid #efeae4;
