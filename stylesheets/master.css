@@ -227,6 +227,16 @@ li.current-menu-ancestor a {
 
 .nav li {
 	float: left;
+	border:1px solid transparent;
+	border-radius: none;
+}
+
+.nav li:hover {
+	border: 1px solid #999999;
+	border-right: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .nav ul {
@@ -259,20 +269,39 @@ li.current-menu-ancestor a {
 .nav li ul ul { margin: -29px 0 0 150px; }
 .nav li li:hover { color: #000; }
 .nav li ul li:hover a, .nav li ul li li:hover a, .nav li ul li li li:hover a, .nav li ul li li li:hover a { color: #000; }
-.nav li:hover a, .nav li.sfhover a { color: #000; display:block;}
+.nav li:hover a, .nav li.sfhover a { color: #EF3937; display:block;}
 .nav li:hover li a, .nav li li:hover li a, .nav li li li:hover li a, .nav li li li li:hover li a { color: #444; }
 .nav li:hover ul ul, .nav li:hover ul ul ul, .nav li:hover ul ul ul ul, .nav li.sfhover ul ul, .nav li.sfhover ul ul ul, .nav li.sfhover ul ul ul ul { left: -999em; }
 .nav li:hover ul, .nav li li:hover ul, .nav li li li:hover ul, .nav li li li li:hover ul, .nav li.sfhover ul, .nav li li.sfhover ul, .nav li li li.sfhover ul, .nav li li li li.sfhover ul { left:auto; }
+
 .nav li:hover, .nav li.sfhover {
-	background: #fff;
+	background: #999999;
 	color: #000;
 }
+
+.nav li:hover {
+	border: 1px solid #999999;
+	border-right: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.sub-menu li:hover{
+	border-radius:0;
+	border-left: 1px solid #CCCCCC;
+}
+
+.nav li ul li {
+	background:#E6E6E6;
+}
+
 .nav .current_page_parent, .single, nav a, .nav .current_page_ancestor, .nav .current-cat-parent {
 	background: #CBCBCB;
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
-	background: #CBCBCB;
+	/*background: #CBCBCB;*/
 	color: #000;
 }
 

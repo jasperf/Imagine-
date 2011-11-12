@@ -5,7 +5,7 @@
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
 			<div class="entry clear">
-			<iframe src="http://www.facebook.com/plugins/like.php?&locale=nl_NL&href=<?php echo urlencode(get_permalink($post->ID)); ?>&amp;layout=standard&amp;show_faces=false&amp;width=350&amp;action=recommend&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:350px; height:25px"></iframe>
+			<iframe src="http://www.facebook.com/plugins/like.php?&locale=en_US&href=<?php echo urlencode(get_permalink($post->ID)); ?>&amp;layout=standard&amp;show_faces=false&amp;width=350&amp;action=recommend&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:350px; height:25px"></iframe>
 			<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 			   <a href="http://twitter.com/share" class="twitter-share-button"
 			      data-url="<?php the_permalink(); ?>"
