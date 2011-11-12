@@ -297,7 +297,7 @@ li.current-menu-ancestor a {
 }
 
 .nav .current_page_parent, .single, nav a, .nav .current_page_ancestor, .nav .current-cat-parent {
-	background: #CBCBCB;
+	background: none;
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
@@ -315,7 +315,8 @@ li.current-menu-ancestor a {
 #header .nav .current_page_item a { color: #EF3937; }
 
 .archive #header .nav .current_page_parent a{ background: #fff;	color:#EF3937;} 
-.single #header .nav .current_page_parent a{ background: #fff;	color:#EF3937;} 
+
+.single #header .nav .current_page_parent a{ background: none;	color:#EF3937;} 
 
 
 /* Custom Post Type Not in Use as of Yet*/
