@@ -64,13 +64,13 @@
 <div id="v-options">
 	<div class="v-top clear">
 		<h1 class="v-trial"><?php echo $this->themename; ?> <?php _e( 'Opties', 'img' ); ?></h1>
-		<!-- <div class="v-logo"><a href="http://doede.net/">Doede.net www-Services</a></div> /-->
+		<!-- <div class="v-logo"><a href="http://imagewize.net/">Imagewize Ltd</a></div> /-->
 	</div>
-	<div id="vop-header"><p><strong><?php _e( 'Need help?', 'img' ); ?></strong> <a href="http://wiki.doede.net/"><?php _e( 'Read the tutorials' , 'img'); ?></a> <?php _e( 'or visit the <a href="http://forum.doede.net/">support forums.</a>', 'img'); ?></p></div>
+	<div id="vop-header"><p><strong><?php _e( 'Need help?', 'img' ); ?></strong> <a href="http://wiki.imagewize.net/"><?php _e( 'Read the tutorials' , 'img'); ?></a> <?php _e( 'or visit the <a href="http://forum.doede.net/">support forums.</a>', 'img'); ?></p></div>
 	<div class="v-notice">
 		<h3><?php _e( 'Go PRO!', 'img' ); ?></h3>
-		<p><?php _e( 'U maakt gebruik van de gratis versie van Imagewize. Upgrade naar Imagewize PRO voor extra features, toegang tot toegewijde support, thema updates, een duidelijke thema handleidingen.', 'img'); ?></p>
-		<p><a href="http://themes.doede.net/"><?php _e( 'Leer meer over Imagewize PRO &rarr;', 'img' ); ?></a></p>
+		<p><?php _e( 'You are using the free version of Imagewize. Upgrade to Imagewize PRO for extra features, acccess to dedicated help, theme updates, clear theme tutorials.', 'img'); ?></p>
+		<p><a href="http://themes.imagewize.net/"><?php _e( 'Learn more about Imagewize PRO &rarr;', 'img' ); ?></a></p>
 	</div>
 	<div id="vop-body">
 		<form method="post">
