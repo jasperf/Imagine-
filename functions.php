@@ -1,12 +1,60 @@
 <?php
+if ( !function_exists( 'optionsframework_init' ) ) {
 
+/*-----------------------------------------------------------------------------------*/
+/* Options Framework Theme
+/*-----------------------------------------------------------------------------------*/
 
-define('TEMPLATEPATH', dirname(__FILE__ ) );
+/* Set the file path based on whether the Options Framework Theme is a parent theme or child theme */
 
-require_once( TEMPLATEPATH . '/functions/seo-options.php');
-require_once( TEMPLATEPATH . '/functions/img-options.php');
-require_once( TEMPLATEPATH . '/functions/meta-boxes.php');
-require_once( TEMPLATEPATH . '/functions/custom-posts.php');
+if ( STYLESHEETPATH == TEMPLATEPATH ) {
+	define('OPTIONS_FRAMEWORK_URL', TEMPLATEPATH . '/admin/');
+	define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('template_directory') . '/admin/');
+} else {
+	define('OPTIONS_FRAMEWORK_URL', STYLESHEETPATH . '/admin/');
+	define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('stylesheet_directory') . '/admin/');
+}
+
+require_once (OPTIONS_FRAMEWORK_URL . 'options-framework.php');
+
+}
+
+/* 
+ * This is an example of how to add custom scripts to the options panel.
+ * This one shows/hides the an option when a checkbox is clicked.
+ */
+
+add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
+
+function optionsframework_custom_scripts() { ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	jQuery('#example_showhidden').click(function() {
+  		jQuery('#section-example_text_hidden').fadeToggle(400);
+	});
+	
+	if (jQuery('#example_showhidden:checked').val() !== undefined) {
+		jQuery('#section-example_text_hidden').show();
+	}
+	
+});
+</script>
+
+<?php
+}
+
+/* 
+ * Turns off the default options panel from Twenty Eleven
+ */
+ 
+add_action('after_setup_theme','remove_twentyeleven_options', 100);
+
+function remove_twentyeleven_options() {
+	remove_action( 'admin_menu', 'twentyeleven_theme_options_add_page' );
+}
+
 
 //Set language folder and load textdomain
 if (file_exists(STYLESHEETPATH . '/languages'))
@@ -19,16 +67,6 @@ load_theme_textdomain( 'img', $language_folder);
 if ( function_exists( 'add_theme_support' ) )
 	add_theme_support( 'post-thumbnails' );
 //	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
-
-//Redirect to theme options page on activation
-if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
-	wp_redirect( 'themes.php?page=img-admin.php');
-
-// Required functions
-if (is_file(STYLESHEETPATH . '/functions/comments.php'))
-	require_once(STYLESHEETPATH . '/functions/comments.php');
-else
-	require_once(TEMPLATEPATH . '/functions/comments.php');
 
 
 // Dynamic Sidebars
@@ -105,21 +143,6 @@ if ( function_exists( 'register_sidebar_widget' ))
 			));
 							
 // custom post type + menu item for it
-
-// Fire this during init
-sd_register_post_type('portfolio', array(
-	'label' => __('Portfolio'),
-	'singular_label' => __('Portfolio'),
-	'rewrite' => true,
-	'public' => true,
-	'show_ui' => true,
-	'capability_type' => 'post',
-	'hierarchical' => false,
-
-	'query_var' => false,
-	'supports' => array('title', 'editor', 'author' )
-));
-
 
 //add dynamic menus
 //Code http://www.1stwebdesigner.com/wordpress/how-to-add-backwards-compatible-wordpress-3-0-features-to-your-theme/

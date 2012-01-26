@@ -1,7 +1,7 @@
 <?php global $img; ?>
 
 <div id="sidebar">
-	<?php if ($img->sideboxState() != 'true' ) ?>
+	<?php //if ($img->sideboxState() != 'true' ) ?>
 	<?php if ( is_active_sidebar( 'normal_sidebar' )) echo "<ul>" ?>
 	<?php if ( !function_exists( 'dynamic_sidebar')|| !dynamic_sidebar( 'normal_sidebar' )) : ?>
 	<?php if(!is_front_page()) : ?>
