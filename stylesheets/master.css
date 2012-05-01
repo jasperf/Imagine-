@@ -21,6 +21,11 @@ address { font-style: normal; }
 
 /*Body & Links
 ------------------------------------------------------------ */
+
+h1.entry-title { font-size:2em;
+	
+}
+
 body {
 	font: 62.5% Tahoma,Arial,Helvetica,Sans-serif;
 	color: #444;
@@ -54,6 +59,7 @@ a:hover { color: #993333; }
 	-webkit-border-radius:9px;
 }
 
+.entry-content {margin:10px 0}
 body.home #content{
 	float: left;
 	width: 600px;
@@ -606,7 +612,35 @@ input.text-input, form#commentform textarea {
 	border: 1px solid #e6e1db;
 	width: 477px;
 }
-input#author, input#email, input#url { width: 300px; }
+
+#commentsText {
+	background:#EDE7E0;
+	width: 500px;
+	border-radius: 5px 5px 5px 5px;
+	float:left;
+}
+
+li#sendit, #labelmessage {
+	float:left;
+}
+
+/* ------------------------------------------------
+CONTACT FORM
+---------------------------------------------------
+*/
+
+#contactForm ul, contactForm ol {font-size:1.4em;} 
+#contactForm {margin:10px 0 10px 10px}
+#contactForm label {width:50px;}
+
+input#author, input#contactName, input#email, input#url {
+    background: #EDE7E0;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    height: 40px;
+    margin: 10px 0;
+    width: 300px;
+}
 form#commentform input#submit {
 	padding: 5px;
 	width: 150px;
@@ -615,6 +649,20 @@ form#commentform p.guidelines {
 	margin: 10px 0;
 	color: #555;
 }
+
+/* ---------------------------------------------------
+Slider Styling
+------------------------------------------------------
+*/
+
+#slideshow{float:left;height:290px;list-style:none;overflow:hidden;width:600px;}
+#slideshow li{display:block;float:left;height:290px;width:600px;}
+#slideshow img{position:absolute;z-index:5;}
+#slideshow div{background:#000;height:65px;opacity:.8;overflow:hidden;padding:20px;position:absolute;width:560px;z-index:10;}
+#slideshow h5{color:#fff;font-size:22px;font-weight:bold;opacity:1;}
+#slideshow p{color:#fff;font-size:16px;font-weight:bold;opacity:1;}
+
+
 p.subscribe-to-comments, p.comments-rss { margin: 0 0 10px 0; }
 p.comments-rss a {
 	font-size: 1.1em;

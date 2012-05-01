@@ -82,15 +82,15 @@ if(isset($_POST['submitted'])) {
 								<?php } ?>
 							</li>
 
-							<li><label for="commentsText">Message:</label>
+							<li>
 								<textarea name="comments" id="commentsText" rows="20" cols="30" class="required requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
 								<?php if($commentError != '') { ?>
 									<span class="error"><?=$commentError;?></span>
 								<?php } ?>
 							</li>
 
-							<li>
-								<input type="submit">Send email</input>
+							<li id="sendit">
+								<input type="submit" name="blowme">Send email</input>
 							</li>
 						</ul>
 						<input type="hidden" name="submitted" id="submitted" value="true" />

@@ -3,8 +3,26 @@
 Template Name: Thuis
 */
 ?>
-
+<?php wp_enqueue_script('jquery'); ?>
 <?php get_header(); ?>
+<!-- Include the Nivo Slider CSS file -->
+<link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/scripts/nivoslider/nivo-slider.css" type="text/css" media="screen" />
+<!-- Include the Nivo Slider JS file -->
+<script src="<?php bloginfo("template_url"); ?>/scripts/nivoslider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<!-- Set up the Nivo Slider -->
+<script type="text/javascript">
+jQuery(window).load(function() {
+	jQuery('#slider').nivoSlider();
+});
+</script>
+
+	<div id="slider">
+		<img src="<?php bloginfo("template_url"); ?>/images/slide_1.jpg" alt="" />
+		<img src="<?php bloginfo("template_url"); ?>/images/slide_2.jpg" alt="" />
+		<img src="<?php bloginfo("template_url"); ?>/images/slide_3.jpg" alt="" title="This is an example of a caption" />
+		<img src="<?php bloginfo("template_url"); ?>/images/slide_4.jpg" alt="" />
+	</div>
+	
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
 		<h1 class="pagetitle"><?php the_title(); ?></h1>
