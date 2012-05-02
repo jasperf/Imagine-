@@ -6,17 +6,22 @@ Template Name: Thuis
 <?php wp_enqueue_script('jquery'); ?>
 <?php get_header(); ?>
 <!-- Include the Nivo Slider CSS file -->
+    <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/scripts/nivoslider/themes/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/scripts/nivoslider/nivo-slider.css" type="text/css" media="screen" />
 <!-- Include the Nivo Slider JS file -->
 <script src="<?php bloginfo("template_url"); ?>/scripts/nivoslider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
 <!-- Set up the Nivo Slider -->
 <script type="text/javascript">
 jQuery(window).load(function() {
-	jQuery('#slider').nivoSlider();
+	jQuery('#slider').nivoSlider({
+		effect: 'fade', // Specify sets like: 'fold,fade,sliceDown,slideInRight,sliceUpLeft'
+		animSpeed: 500, // Slide transition speed
+		pauseTime: 6000, // How long each slide will show
+		});
 });
 </script>
 
-	<div id="slider">
+	<div id="slider" class="slider-wrapper theme-default">
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_1.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_2.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_3.jpg" alt="" title="This is an example of a caption" />
