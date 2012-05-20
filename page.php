@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+<div class="content-background">
+	<div class="contentwrapper">
+		<div class="notice"></div>
+		<div id="content">
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
 		<h1 class="pagetitle"><?php the_title(); ?></h1>

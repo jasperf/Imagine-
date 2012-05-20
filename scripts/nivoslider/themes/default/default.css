@@ -32,6 +32,7 @@ Author URI: http://dev7studios.com
 	left:50%;
 	bottom:-42px;
     margin-left:-40px; /* Tweak this to center bullets */
+	margin-bottom:20px;
 }
 .theme-default .nivo-controlNav a {
 	display:block;

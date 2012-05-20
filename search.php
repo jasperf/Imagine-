@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+<div class="content-background">
+	<div class="contentwrapper">
+		<div class="notice"></div>
+		<div id="content">
 	<?php if (have_posts()) : ?>
 		<h1 class="pagetitle"><?php printf(__ ("Search results for '%s'", "img"), attribute_escape(get_search_query())); ?></h1>
 	<?php while (have_posts()) : the_post(); ?>

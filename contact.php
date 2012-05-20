@@ -49,7 +49,10 @@ if(isset($_POST['submitted'])) {
 
 } ?>
 <?php get_header(); ?>
-
+<div class="content-background">
+	<div class="contentwrapper">
+		<div class="notice"></div>
+		<div id="content">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -90,7 +93,7 @@ if(isset($_POST['submitted'])) {
 							</li>
 
 							<li id="sendit">
-								<input type="submit" name="blowme">Send email</input>
+								<input type="submit">Send email</input>
 							</li>
 						</ul>
 						<input type="hidden" name="submitted" id="submitted" value="true" />

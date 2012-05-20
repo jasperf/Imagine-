@@ -73,8 +73,3 @@
 						</div> <!-- End Menu wrapper -->
 			
 		</div><!--end wrapper-->
-	</div><!--end header-->
-<div class="content-background">
-	<div class="contentwrapper">
-		<div class="notice"></div>
-		<div id="content">

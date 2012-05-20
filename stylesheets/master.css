@@ -655,13 +655,30 @@ Slider Styling
 ------------------------------------------------------
 */
 
-#slideshow{float:left;height:290px;list-style:none;overflow:hidden;width:600px;}
-#slideshow li{display:block;float:left;height:290px;width:600px;}
-#slideshow img{position:absolute;z-index:5;}
-#slideshow div{background:#000;height:65px;opacity:.8;overflow:hidden;padding:20px;position:absolute;width:560px;z-index:10;}
-#slideshow h5{color:#fff;font-size:22px;font-weight:bold;opacity:1;}
-#slideshow p{color:#fff;font-size:16px;font-weight:bold;opacity:1;}
+#slider {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #A9A9A9;
+    border-style: solid;
+    border-width: 1px;
+    margin: 30px 0 30px 0;
+    float: left;
+    width: 618px;
+}
+/* ---------------------------------------------------
+End Slider Styling
+------------------------------------------------------
+*/
 
+/* ---------------------------------------------------
+Header Right Teaser
+------------------------------------------------------
+*/
+#head-right-block {width:350px;height: 216px;float: right;margin:30px 0;background:#fff;}
+
+/* ---------------------------------------------------
+End Header Right Teaser
+------------------------------------------------------
+*/
 
 p.subscribe-to-comments, p.comments-rss { margin: 0 0 10px 0; }
 p.comments-rss a {

@@ -20,14 +20,18 @@ jQuery(window).load(function() {
 		});
 });
 </script>
-
-	<div id="slider" class="slider-wrapper theme-default">
+  <div id="slider" class="slider-wrapper theme-default">
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_1.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_2.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_3.jpg" alt="" title="This is an example of a caption" />
-		<img src="<?php bloginfo("template_url"); ?>/images/slide_4.jpg" alt="" />
-	</div>
+	</div> <!-- end slider -->
+	<div id="head-right-block"></div>
+	</div> <!-- end header -->
+	<div class="content-background">
 	
+		<div class="contentwrapper">
+			<div class="notice"></div>
+			<div id="content">	
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
 		<h1 class="pagetitle"><?php the_title(); ?></h1>

@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+<div class="content-background">
+	<div class="contentwrapper">
+		<div class="notice"></div>
+		<div id="content">
 	<?php if (have_posts()) : ?>
 		<?php /* If this is a category archive */ if (is_category()) { ?>
 			<h1 class="pagetitle"><?php printf(__ ( 'Posts from the  &#8216;%s&#8217; Category', 'img'), single_cat_title('', false)); ?></h1>
