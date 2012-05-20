@@ -100,8 +100,6 @@ div.skip-content { display: none; }
 /*Header
 ------------------------------------------------------------ */
 #header {
-	width: 100%;
-	border-bottom: 1px solid #ede7e0;
 	width:1000px;
 	/*height:177px;*/
 	margin:0 auto;
@@ -663,6 +661,7 @@ Slider Styling
     margin: 30px 0 30px 0;
     float: left;
     width: 618px;
+    height:246px;
 }
 /* ---------------------------------------------------
 End Slider Styling
