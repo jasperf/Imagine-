@@ -159,5 +159,27 @@ array(
 }
 }
 
+/*----------------------------------------
+Slider Custom Post Type 
+---------------------------------------------*/
+
+add_action( 'init', 'create_slider' );
+function create_slider() {
+	register_post_type( 'img_slideshow',
+		array(
+			'labels' => array(
+				'name' => __( 'Slides' ),
+				'singular_name' => __( 'Slide' )
+			),
+		'public' => true,
+		'show_ui' => true,
+    	'capability_type' => 'post',
+    	'hierarchical' => false,
+    	'rewrite' => false,
+    	'query_var' => false,
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		)
+	);
+}
 
 ?>

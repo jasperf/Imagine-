@@ -22,10 +22,59 @@ jQuery(window).load(function() {
 </script>
 <div id="slider-wrapper">
   <div id="slider" class="slider-wrapper theme-default">
-		<img src="<?php bloginfo("template_url"); ?>/images/slide_1.jpg" alt="" />
-		<img src="<?php bloginfo("template_url"); ?>/images/slide_2.jpg" alt="" />
-		<img src="<?php bloginfo("template_url"); ?>/images/slide_3.jpg" alt="" title="This is an example of a caption" />
-	</div> <!-- end slider -->
+
+  <?php $pj_slider = new WP_Query('post_type=img_slideshow&showposts=4'); while($pj_slider->have_posts()) : $pj_slider->the_post(); ?>
+
+
+
+  <?php $pj_slider_caption = '#slider-caption-'.get_the_ID(); ?>
+
+
+
+  <?php if(has_post_thumbnail() ) {
+
+  $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'slider');
+  ?>
+  <img src="<?php echo $large_image_url[0];?>" title="<?php echo $pj_slider_caption;?>" alt="<?php echo $pj_slider_caption;?>" />
+
+
+  <?php } ?>
+
+
+
+  <?php endwhile; wp_reset_query(); ?>
+
+
+
+  <?php $pj_slider_caption = new WP_Query('post_type=img_slideshow&showposts=4'); 
+
+  while($pj_slider_caption->have_posts()) : $pj_slider_caption->the_post(); ?>
+
+
+
+  <div id="slider-caption- <?php the_ID(); ?>" class="nivo-html-caption">
+
+
+
+  <span class="nivo-caption-title"><?php the_title(); ?></span>
+
+  <?php $pj_nivo_caption_content = get_the_excerpt(); ?>
+
+  <span class="nivo-caption-content"><?php echo $pj_nivo_caption_content; ?></span>
+
+  <span class="nivo-caption-link"><a href="<?php the_permalink(); ?>">Read more about this feature &raquo;</a></span>
+
+
+
+  </div><!-- // nivo-html-caption -->
+
+
+
+  <?php endwhile; ?>
+
+
+
+  </div> <!-- end slider -->
 	<div id="head-right-block"></div>
 	</div> <!-- end slider wrapper -->
 	</div> <!-- end header -->
