@@ -52,7 +52,7 @@ jQuery(window).load(function() {
       while($pj_slider_caption->have_posts()) : $pj_slider_caption->the_post(); ?>
 
 
-          <div id="slider-caption- <?php the_ID(); ?>" class="nivo-html-caption">
+          <div id="slider-caption-<?php the_ID(); ?>" class="nivo-html-caption">
 
               <span class="nivo-caption-title"><?php the_title(); ?></span>
 
