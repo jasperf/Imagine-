@@ -21,60 +21,54 @@ jQuery(window).load(function() {
 });
 </script>
 <div id="slider-wrapper">
-  <div id="slider" class="slider-wrapper theme-default">
+  <div class="slider-wrapper theme-default">
 
-  <?php $pj_slider = new WP_Query('post_type=img_slideshow&showposts=4'); while($pj_slider->have_posts()) : $pj_slider->the_post(); ?>
+              <div class="ribbon"></div>
 
-
-
-  <?php $pj_slider_caption = '#slider-caption-'.get_the_ID(); ?>
+              <div id="slider" class="nivoSlider">
 
 
-
-  <?php if(has_post_thumbnail() ) {
-
-  $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'slider');
-  ?>
-  <img src="<?php echo $large_image_url[0];?>" title="<?php echo $pj_slider_caption;?>" alt="<?php echo $pj_slider_caption;?>" />
+  				<?php $pj_slider = new WP_Query('post_type=img_slideshow&showposts=4'); while($pj_slider->have_posts()) : $pj_slider->the_post(); ?>
 
 
-  <?php } ?>
+      <?php $pj_slider_caption = '#slider-caption-'.get_the_ID(); ?>
+
+          <?php if(has_post_thumbnail() ) { ?>
 
 
-
-  <?php endwhile; wp_reset_query(); ?>
-
+              <?php the_post_thumbnail('slider', array('title' => ''.$pj_slider_caption.'')); ?>
 
 
-  <?php $pj_slider_caption = new WP_Query('post_type=img_slideshow&showposts=4'); 
+          <?php } ?>
 
-  while($pj_slider_caption->have_posts()) : $pj_slider_caption->the_post(); ?>
-
-
-
-  <div id="slider-caption- <?php the_ID(); ?>" class="nivo-html-caption">
+      <?php endwhile; wp_reset_query(); ?>
 
 
+              </div>
 
-  <span class="nivo-caption-title"><?php the_title(); ?></span>
-
-  <?php $pj_nivo_caption_content = get_the_excerpt(); ?>
-
-  <span class="nivo-caption-content"><?php echo $pj_nivo_caption_content; ?></span>
-
-  <span class="nivo-caption-link"><a href="<?php the_permalink(); ?>">Read more about this feature &raquo;</a></span>
+             <?php $pj_slider_caption = new WP_Query('post_type=img_slideshow&showposts=4'); 
 
 
-
-  </div><!-- // nivo-html-caption -->
-
+      while($pj_slider_caption->have_posts()) : $pj_slider_caption->the_post(); ?>
 
 
-  <?php endwhile; ?>
+          <div id="slider-caption- <?php the_ID(); ?>" class="nivo-html-caption">
+
+              <span class="nivo-caption-title"><?php the_title(); ?></span>
+
+              <?php $pj_nivo_caption_content = get_the_excerpt(); ?>
+
+              <span class="nivo-caption-content"><?php echo $pj_nivo_caption_content; ?></span>
+
+              <span class="nivo-caption-link"><a href="<?php the_permalink(); ?>">Read more about this feature &raquo;</a></span>
+
+          </div><!-- // nivo-html-caption -->
 
 
+      <?php endwhile; wp_reset_query(); ?>
 
-  </div> <!-- end slider -->
+  </div>
+  
 	<div id="head-right-block"></div>
 	</div> <!-- end slider wrapper -->
 	</div> <!-- end header -->
