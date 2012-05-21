@@ -22,35 +22,20 @@ jQuery(window).load(function() {
 </script>
 <div id="slider-wrapper">
   <div class="slider-wrapper theme-default">
-
               <div class="ribbon"></div>
-
               <div id="slider" class="nivoSlider">
-
-
   				<?php $pj_slider = new WP_Query('post_type=img_slideshow&showposts=4'); while($pj_slider->have_posts()) : $pj_slider->the_post(); ?>
-
 
       <?php $pj_slider_caption = '#slider-caption-'.get_the_ID(); ?>
 
           <?php if(has_post_thumbnail() ) { ?>
 
-
               <?php the_post_thumbnail('slider', array('title' => ''.$pj_slider_caption.'')); ?>
-
-
           <?php } ?>
-
       <?php endwhile; wp_reset_query(); ?>
-
-
               </div>
-
              <?php $pj_slider_caption = new WP_Query('post_type=img_slideshow&showposts=4'); 
-
-
       while($pj_slider_caption->have_posts()) : $pj_slider_caption->the_post(); ?>
-
 
           <div id="slider-caption-<?php the_ID(); ?>" class="nivo-html-caption">
 
@@ -60,11 +45,8 @@ jQuery(window).load(function() {
 
               <span class="nivo-caption-content"><?php echo $pj_nivo_caption_content; ?></span>
 
-              <span class="nivo-caption-link"><a href="<?php the_permalink(); ?>">Read more about this feature &raquo;</a></span>
-
+      <span class="nivo-caption-link"><a href="<?php the_permalink(); ?>">Read more about this feature &raquo;</a></span>
           </div><!-- // nivo-html-caption -->
-
-
       <?php endwhile; wp_reset_query(); ?>
 
   </div>
