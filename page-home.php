@@ -20,12 +20,14 @@ jQuery(window).load(function() {
 		});
 });
 </script>
+<div id="slider-wrapper">
   <div id="slider" class="slider-wrapper theme-default">
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_1.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_2.jpg" alt="" />
 		<img src="<?php bloginfo("template_url"); ?>/images/slide_3.jpg" alt="" title="This is an example of a caption" />
 	</div> <!-- end slider -->
 	<div id="head-right-block"></div>
+	</div> <!-- end slider wrapper -->
 	</div> <!-- end header -->
 	<div class="content-background">
 	

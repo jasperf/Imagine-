@@ -52,7 +52,7 @@
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
 	<div id="header" class="clear">
 		
-		<div class="wrapper">
+		<div class="header-top">
 			<div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
 			<div id="menuwrapper">
 			<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
@@ -72,4 +72,4 @@
 							<?php	} ?>
 						</div> <!-- End Menu wrapper -->
 			
-		</div><!--end wrapper-->
+		</div><!--end Header Top-->
