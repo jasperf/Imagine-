@@ -78,6 +78,7 @@ function optionsframework_load_sanitization() {
 function optionsframework_init() {
 
 	// Include the required files
+	//dirname(__FILE__) /opt/local/www/wordpress/wp-content/themes/imagine/admin
 	require_once dirname( __FILE__ ) . '/options-interface.php';
 	require_once dirname( __FILE__ ) . '/options-medialibrary-uploader.php';
 	
