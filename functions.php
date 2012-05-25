@@ -182,4 +182,56 @@ function create_slider() {
 	);
 }
 
+/************************************************
+Custom Header Image Code
+Source: http://clark-technet.com/2012/04/wordpress-custom-headers-update-for-3-4
+*************************************************/
+add_action( 'after_setup_theme', 'theme_setup' );
+ 
+function theme_setup() {
+global $wp_version;
+//Compare wp_version to know which way to add custom header support
+if (version_compare($wp_version, '3.4' , '>=')){
+add_theme_support( 'custom-header', array(
+// Header image default
+'default-image'	 => get_template_directory_uri() . '/images/headers/header.jpg',
+// Header text display default
+'header-text'	 => false,
+// Header text color default
+'default-text-color'	 => '000',
+// Header image width (in pixels)
+'width'	 => '1000',
+// Header flex width changes width into suggested width
+'flex-width' => true,
+// Header image height (in pixels)
+'height'	 => '200',
+// Header flex height changes height into suggested height
+'flex-height' => true,
+// Header image random rotation default
+'random-default'	 => true,
+// Template header style callback
+'wp-head-callback'	 => 'theme_header_style',
+// Admin header style callback
+'admin-head-callback'	 => 'theme_admin_header_style',
+// Admin preview style callback
+'admin-preview-callback'	=> 'theme_admin_header_image'
+) );
+} else {
+add_theme_support( 'custom-header', array( 'random-default' => true ) );
+//WP Custom Header - random roation by default
+define( 'HEADER_TEXTCOLOR', '' );
+define( 'HEADER_IMAGE', '' );
+define( 'HEADER_IMAGE_HEIGHT', '200' );
+define( 'HEADER_IMAGE_WIDTH', '1000' );
+define('NO_HEADER_TEXT', true );
+add_custom_image_header( 'theme_header_style', 'theme_admin_header_style', 'theme_admin_header_image' );
+}
+register_default_headers( array(
+'header' => array(
+'url' => '%s/images/headers/header.jpg',
+'thumbnail_url' => '%s/images/headers/header-thumbnail.jpg',
+'description' => 'Header Image 1'
+)
+) );
+}
 ?>

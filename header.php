@@ -53,7 +53,16 @@
 	<div id="header" class="clear">
 		
 		<div class="header-top">
-			<div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
+			
+			<?php
+      		// Check to see if the header image has been removed
+      		$header_image = get_header_image();
+      		if (empty( $header_image )): ?>
+      <div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
+      	<?php else: ?>		
+      <div id="title"><h1><img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /></h1></div>
+      <?php endif;?>
+            	</div>
 			<div id="menuwrapper">
 			<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
 						  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
