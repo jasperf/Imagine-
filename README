@@ -1,5 +1,12 @@
 Imagine Framework
 
-The Imagine framework is an Open Source WordPress framework developped by ImageWize Ltd.
-Imagine is using the theme options code from https://github.com/vauvarin/options-framework-theme
-Imagine is a theme that supports Dutch, English, French and German.
+The Imagine framework is an Open Source WordPress framework developed by ImageWize Ltd.
+Imagine is using the theme options code from https://github.com/vauvarin/options-framework-theme and https://github.com/devinsays/options-framework-theme
+Imagine is a theme that will support Dutch, English, French and German. 
+Characteristics of framework:
+Multilingual
+SEO Friendly - Meta Description
+Fully Widgetized
+Custom Header
+WordPress 3.0 Menus
+Custom Layout per page and post
