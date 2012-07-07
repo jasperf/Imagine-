@@ -14,6 +14,9 @@
 :link,:visited { text-decoration: none; }
 ul, ol { list-style: none; }
 h1 {width:400px;}
+.content h1 {
+  height:20px;
+}
 h1, h2, h3, h4, h5, h6, pre, code, p { font-size: 1em; }
 ul, ol, dl, li, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input { margin: 0; padding: 0; }
 a img, :link img, :visited img { border: none; }
@@ -152,7 +155,7 @@ div.skip-content { display: none; }
 
 h1#title, div#title {
 	/*float: left;*/
-	padding: 15px 0;
+	/*padding: 15px 0;*/
 	font-size: 3em;
 	font-weight: bold;
 	line-height: 50px;
@@ -312,7 +315,7 @@ li.current-menu-ancestor a {
 }
 
 .nav .current_page_parent, .single, nav a, .nav .current_page_ancestor, .nav .current-cat-parent {
-	background: none;
+	/*background: none;*/
 	color: #000;
 }
 .nav .current-cat, .nav .current_page_item {
