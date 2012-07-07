@@ -61,7 +61,8 @@
                 <div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
                 	<?php else: ?>
                 	<div class="header-top-with-image">	
-                <div id="title"><h1><img src="<?php header_image(); ?>" alt="" /></h1></div>
+                <div id="title"><a href="<?php bloginfo( 'url'); ?>"><h1><img src="<?php header_image(); ?>" alt="" /></h1>
+                </a></div>
                 <?php endif;?>
             	</div>
 			<div id="menuwrapper">
