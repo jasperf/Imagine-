@@ -52,16 +52,17 @@
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
 	<div id="header" class="clear">
 		
-		<div class="header-top">
-			
-			<?php
-      		// Check to see if the header image has been removed
-      		$header_image = get_header_image();
-      		if (empty( $header_image )): ?>
-      <div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
-      	<?php else: ?>		
-      <div id="title"><h1><img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /></h1></div>
-      <?php endif;?>
+		
+			      		<?php
+                		// Check to see if the header image has been removed
+                		$header_image = get_header_image();
+                		if (empty( $header_image )): ?>
+                		<div class="header-top">
+                <div id="title"><h1><a href="<?php bloginfo( 'url'); ?>"><?php bloginfo( 'description'); ?></a></h1></div>
+                	<?php else: ?>
+                	<div class="header-top-with-image">	
+                <div id="title"><h1><img src="<?php header_image(); ?>" alt="" /></h1></div>
+                <?php endif;?>
             	</div>
 			<div id="menuwrapper">
 			<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>

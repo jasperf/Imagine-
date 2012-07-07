@@ -45,6 +45,15 @@ a:hover { color: #993333; }
 	text-align: left;
 }
 
+.header-top-with-image {
+  width: 1000px;
+	height:200px;
+	padding:0;
+	margin: 0 0 10px 0;
+}
+
+.header-top #title {height}
+
 .contentwrapper{
 	width: 1000px;
 	margin: 0 auto;
