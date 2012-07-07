@@ -47,12 +47,14 @@ a:hover { color: #993333; }
 
 .header-top-with-image {
   width: 1000px;
-	height:200px;
+	height:220px;
 	padding:0;
 	margin: 0 0 10px 0;
 }
 
-.header-top #title {height}
+.header-top-with-image #title {
+  margin:0px;
+}
 
 .contentwrapper{
 	width: 1000px;
