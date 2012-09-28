@@ -1129,7 +1129,6 @@ padding:4px 8px;
   background: -ms-linear-gradient(top,  #f2825b 0%,#e55b2b 50%,#f07146 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #f2825b 0%,#e55b2b 50%,#f07146 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2825b', endColorstr='#f07146',GradientType=0 ); /* IE6-9 */
-  
   border: solid #ccc 3px;
   box-shadow:
   0 1px 2px #fff /*bottom external highlight*/
@@ -1143,3 +1142,6 @@ padding:4px 8px;
   text-shadow: 0 1px 0 #FFFFFF, 0 -1px 0 #000000;
   line-height:10px;
   }
+#hireme a:hover {
+  color:orange;
+}
