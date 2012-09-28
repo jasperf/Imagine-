@@ -52,7 +52,7 @@ if(isset($_POST['submitted'])) {
 <div class="content-background">
 	<div class="contentwrapper">
 		<div class="notice"></div>
-		<div id="content">
+		<div id="content-contact">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -93,13 +93,15 @@ if(isset($_POST['submitted'])) {
 							</li>
 
 							<li id="sendit">
-								<input type="submit">Send email</input>
+								<input type="submit" value="submit"></input>
 							</li>
 						</ul>
 						<input type="hidden" name="submitted" id="submitted" value="true" />
 					</form>
 					<div style="clear:left;"></div>
 				<?php } ?>
-				</div><!-- .entry-content -->					
+				</div><!-- .entry-content -->		
 				<?php endwhile; endif; ?>
+				</div><!-- End content background -->
+				</div><!-- End contentwrapper -->
 				<?php get_footer(); ?>

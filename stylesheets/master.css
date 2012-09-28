@@ -223,6 +223,7 @@ div#subnavigation {
 }
 .nav, .nav ul {
 	line-height: 40px;
+	z-index: 100000;
 	padding: 5px 0 0 0;
 	margin: 0 0 0 10px;
 	width: 100%;
@@ -230,6 +231,7 @@ div#subnavigation {
 
 li.page_item, li.menu-item-type-post_type, li.menu-item-type-custom {margin:0 8px 0 8px;}
 
+ul.sub-menu {border-bottom: 1px solid #999 !important; border-bottom-left-radius:5px 10px;}
 .sub-menu li.menu-item {margin:0;}
 
 .nav a {
@@ -274,14 +276,14 @@ li.current-menu-ancestor a {
 
 .nav li li {
 	width: 149px;
-	border-bottom: 1px solid #e3e0d5;
-	border-left: 1px solid #e3e0d5;
-	border-right: 1px solid #e3e0d5;
+	/*border-bottom: 1px solid #e3e0d5;
+	 border-left: 1px solid #e3e0d5;
+	 border-right: 1px solid #e3e0d5;*/
 	background: #FFF;
 }
 .nav li li li { border-left: none; }
 .nav li li a {
-	padding: 4px 10px;
+	padding: 0px 10px 4px 10px;
 	width: 130px;
 }
 .nav li ul ul { margin: -29px 0 0 150px; }
@@ -633,13 +635,18 @@ input.text-input, form#commentform textarea {
 }
 
 li#sendit, #labelmessage {
-	float:left;
+	clear:both;
 }
 
 /* ------------------------------------------------
 CONTACT FORM
 ---------------------------------------------------
 */
+
+
+.page-template-contact-php h1.entry-title {
+  margin:0 0 0 10px;
+}
 
 #contactForm ul, contactForm ol {font-size:1.4em;} 
 #contactForm {margin:10px 0 10px 10px}
@@ -815,19 +822,22 @@ ul li.widget ul li ul li { padding: 1px 0 0 0; }
 ---------------------------------------*/
 .footer-column {
 	float: left;
-	margin-right: 30px;
+  margin:0 15px 15px 15px;
 	padding-bottom: 20px;
 	color: #fff;
 }
-#footer-about.footer-column { width: 237px; }
-#footer-recent.footer-column { width: 320px;}
 
-#footer-flickr.footer-column { width: 281px; }
+#footer-recent.footer-column { /*left side column*/
+  width: 280px;
+}
 
-#footer-latest.footer-column {
-	margin: 0;
+#footer-bookmarks.footer-column { /*left side column*/
+    width: 280px;
+}
+    
+#footer-get-connected.footer-column { /*right side column*/
 	float: right;
-	width: 266px;
+	width: 280px;
 }
 
 .footer-column h2 {
