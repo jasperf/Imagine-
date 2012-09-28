@@ -50,7 +50,7 @@
 </head>
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
-	<div id="auto" style="margin:0 auto;width:960px;height:50px;"><div id="hireme"><a>F</a></div></div>
+	<div id="social-header"><div id="hireme"><a>F</a></div></div>
 	<div id="header" class="clear">
 		
 			      		<?php
