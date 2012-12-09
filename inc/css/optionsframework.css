@@ -1,6 +1,4 @@
-/*-------------------------------------------------------------------------------------------*/
-/* OptionsFramework Admin Styles */
-/*-------------------------------------------------------------------------------------------*/
+/* Options Framework Admin Styles */
 
 .updated {
 	max-width:764px;
@@ -12,9 +10,13 @@
 	max-width:780px;
 	background:#fff;
 }
+#optionsframework h3 {
+	cursor: default;
+}
 #optionsframework p {
 	margin-bottom:0;
 	padding-bottom:10px;
+	line-height: 1.4em;
 }
 #optionsframework .section {
 	padding:10px 10px 0;
@@ -46,11 +48,7 @@
 #optionsframework .section-checkbox .explain {
 	max-width:94%;
 }
-#optionsframework .section-color .controls {
-	min-width:125px;
-	width:125px
-}
-#optionsframework .controls input, #optionsframework .controls select, #optionsframework .controls textarea {
+#optionsframework .controls select, #optionsframework .controls textarea {
 	margin-bottom:10px;
 	width:100%;
 }
@@ -62,18 +60,20 @@
 }
 #optionsframework input.checkbox, #optionsframework input.of-radio {
 	width: 30px;
+	margin-top:2px;
 	float:left;
 	clear:both;
 }
-#optionsframework .controls .of-color {
-	float:left;
-	width: 80px;
-	margin-left:5px;
-	margin-right:5px;
+#optionsframework .section-typography .controls {
+	float:none;
+	width:auto;
+}
+#optionsframework .section-typography .explain {
+	float:none;
+	width:auto;
 }
 #optionsframework .controls .of-typography-size {
 	width:80px;
-	margin-left:5px;
 	float:left
 }
 #optionsframework .controls .of-typography-unit {
@@ -111,8 +111,8 @@
 	margin-right:5px;
 	float:left
 }
-#optionsframework div.section-background .controls input.upload {
-	width:47%;
+#optionsframework .section-background .wp-picker-container {
+	margin-bottom:10px;
 }
 #optionsframework .controls .of-radio-img-img {
 	border:3px solid #f9f9f9;
@@ -152,6 +152,15 @@
 #optionsframework .mini .explain {
 	max-width:74%;
 }
+
+/* Editor */
+
+#optionsframework .section-editor .explain {
+	max-width: 98%;
+	float:none;
+	margin-bottom:5px;
+}
+
 /* Image Uploader */
 
 #optionsframework .controls input.upload {
@@ -159,10 +168,8 @@
 }
 #optionsframework .controls input.upload_button {
 	float:right;
-	width:45px;
 	border-color:#BBBBBB;
 	cursor:pointer;
-	height:16px;
 }
 #optionsframework .controls input.upload_button:hover {
 	border-color:#666666;
@@ -220,84 +227,10 @@
 #optionsframework .button-primary {
 	float:right;
 }
-
-/* Top icon */
-
-#icon-settings, #icon-import-export {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: transparent;
-    background-origin: padding-box;
-    background-repeat: no-repeat;
-    background-size: auto auto;
+#optionsframework .section:after {
+	content: "";
+	display: table;
 }
-
-#icon-settings {
-    background-image: url("../images/options-settings32.png?");
-}
-
-#icon-import-export {
-    background-image: url("../images/import-export32.png?");
-}
-
-/* Extern Links on top */
-
-.extern-links {
-	margin:10px 0;
-	padding: 10px 0;
-	max-width:764px;
-	text-align:right;
-}
-
-.extern-links a {
-	margin:0 0 0 20px;
-	float: right; 
-	display: block; 
-	font: 14px Arial, Helvetica, sans-serif; 
-	color: #34759b;  
-	text-decoration: none; 
-}
-
-span.icon span { 
-	padding: 0px 0px 0px 40px; 
-	display: block; 
-	height: 34px; 
-	line-height: 32px; 
-}
- 
-a.icon-a:hover { 
-	text-decoration: underline; 
-}
- 
-a.icon-support span.icon span { 
-	background: url(../images/support.png) no-repeat 15px 8px; 
-}
-
-a.icon-documentation span.icon span { 
-	background: url(../images/documentation.png) no-repeat 15px 8px; 
-}
-
-a.icon-gallery span.icon span { 
-	background: url(../images/gallery.png) no-repeat 15px 8px; 
-}
- 
-.clear {
-	display:block;
-	clear:both;
-}
-
-/* background:url("../images/ico-delete.png") no-repeat; */
-
-/* Backup Settings */
-
-.import, .export {
-	margin: 20px 0;
-	padding: 0 0 20px 10px;
-	border: 1px solid #ECECEC;
-	background-color: #f9f9f9;
-}
-
-.import label {
-	display:block;
-	padding: 0 0 5px 0;
+#optionsframework .section:after {
+	clear: both;
 }

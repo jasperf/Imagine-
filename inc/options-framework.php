@@ -1,12 +1,10 @@
 <?php
 /*
-Plugin Name: Options Framework
-Plugin URI: http://www.wptheming.com
 Description: A framework for building theme options.
-Version: 0.8
 Author: Devin Price
 Author URI: http://www.wptheming.com
 License: GPLv2
+Version: 1.4
 */
 
 /*
@@ -25,17 +23,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-/* Basic plugin definitions */
-
-define('OPTIONS_FRAMEWORK_VERSION', '0.9');
-
-/* Make sure we don't expose any info if called directly */
-
-if ( !function_exists( 'add_action' ) ) {
-	echo "Hi there!  I'm just a little plugin, don't mind me.";
-	exit;
-}
-
 /* If the user can't edit theme options, no use running this plugin */
 
 add_action('init', 'optionsframework_rolescheck' );
@@ -46,15 +33,8 @@ function optionsframework_rolescheck () {
 		add_action( 'admin_menu', 'optionsframework_add_page');
 		add_action( 'admin_init', 'optionsframework_init' );
 		add_action( 'admin_init', 'optionsframework_mlu_init' );
+		add_action( 'wp_before_admin_bar_render', 'optionsframework_adminbar' );
 	}
-}
-
-/* Loads the file for option backup */
-
-add_action('init', 'optionsframework_load_backup' );
-
-function optionsframework_load_backup() {
-	require_once dirname( __FILE__ ) . '/options-backup.php';
 }
 
 /* Loads the file for option sanitization */
@@ -78,7 +58,6 @@ function optionsframework_load_sanitization() {
 function optionsframework_init() {
 
 	// Include the required files
-	//dirname(__FILE__) /opt/local/www/wordpress/wp-content/themes/imagine/admin
 	require_once dirname( __FILE__ ) . '/options-interface.php';
 	require_once dirname( __FILE__ ) . '/options-medialibrary-uploader.php';
 	
@@ -109,9 +88,22 @@ function optionsframework_init() {
 	}
 	
 	// Registers the settings fields and callback
-	if (!isset( $_POST['OptionsFramework-backup-import'] )) {
-		register_setting( 'optionsframework', $option_name, 'optionsframework_validate' );
-	}
+	register_setting( 'optionsframework', $option_name, 'optionsframework_validate' );
+	
+	// Change the capability required to save the 'optionsframework' options group.
+	add_filter( 'option_page_capability_optionsframework', 'optionsframework_page_capability' );
+}
+
+/**
+ * Ensures that a user with the 'edit_theme_options' capability can actually set the options
+ * See: http://core.trac.wordpress.org/ticket/14365
+ *
+ * @param string $capability The capability used for the page, which is manage_options by default.
+ * @return string The capability to actually use.
+ */
+
+function optionsframework_page_capability( $capability ) {
+	return 'edit_theme_options';
 }
 
 /* 
@@ -166,47 +158,56 @@ function optionsframework_setdefaults() {
 /* Add a subpage called "Theme Options" to the appearance menu. */
 
 if ( !function_exists( 'optionsframework_add_page' ) ) {
-function optionsframework_add_page() {
 
-	$of_page = add_menu_page(
-		'Options', 
-		'Options', 
-		'edit_theme_options', 
-		'options-framework',
-		'optionsframework_page',
-		OPTIONS_FRAMEWORK_DIRECTORY.'images/options-settings16.png',
-		61
-		);
+	function optionsframework_add_page() {
+		$of_page = add_theme_page(__('Theme Options', 'options_framework_theme'), __('Theme Options', 'options_framework_theme'), 'edit_theme_options', 'options-framework','optionsframework_page');
+		
+		// Load the required CSS and javscript
+		add_action('admin_enqueue_scripts', 'optionsframework_load_scripts');
+		add_action( 'admin_print_styles-' . $of_page, 'optionsframework_load_styles' );
+	}
 	
-	// Adds actions to hook in the required css and javascript
-	add_action("admin_print_styles-$of_page",'optionsframework_load_styles');
-	add_action("admin_print_scripts-$of_page", 'optionsframework_load_scripts');
-	
-}
 }
 
 /* Loads the CSS */
 
 function optionsframework_load_styles() {
-	wp_enqueue_style('admin-style', OPTIONS_FRAMEWORK_DIRECTORY.'css/admin-style.css');
-	wp_enqueue_style('color-picker', OPTIONS_FRAMEWORK_DIRECTORY.'css/colorpicker.css');
-}	
+	wp_enqueue_style('optionsframework', OPTIONS_FRAMEWORK_DIRECTORY . 'css/optionsframework.css');
+	if ( !wp_style_is( 'wp-color-picker','registered' ) ) {
+		wp_register_style('wp-color-picker', OPTIONS_FRAMEWORK_DIRECTORY . 'css/color-picker.min.css');
+	}
+	wp_enqueue_style( 'wp-color-picker' );
+}
 
 /* Loads the javascript */
 
-function optionsframework_load_scripts() {
+function optionsframework_load_scripts($hook) {
+
+	if ( 'appearance_page_options-framework' != $hook )
+        return;
+
+	// Enqueue colorpicker scripts for versions below 3.5
+	// for compatibility
+	
+	if ( !wp_script_is( 'wp-color-picker', 'registered' ) ) {
+		wp_register_script( 'iris', OPTIONS_FRAMEWORK_DIRECTORY . 'js/iris.min.js', array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1 );
+		wp_register_script( 'wp-color-picker', OPTIONS_FRAMEWORK_DIRECTORY . 'js/color-picker.min.js', array( 'jquery', 'iris' ) );
+		$colorpicker_l10n = array(
+			'clear' => __( 'Clear' ),
+			'defaultString' => __( 'Default' ),
+			'pick' => __( 'Select Color' )
+		);
+		wp_localize_script( 'wp-color-picker', 'wpColorPickerL10n', $colorpicker_l10n );
+	}
+	
+	// Enqueue custom option panel JS
+	wp_enqueue_script( 'options-custom', OPTIONS_FRAMEWORK_DIRECTORY . 'js/options-custom.js', array( 'jquery','wp-color-picker' ) );
 
 	// Inline scripts from options-interface.php
-	add_action('admin_head', 'of_admin_head');
-	
-	// Enqueued scripts
-	wp_enqueue_script('jquery-ui-core');
-	wp_enqueue_script('color-picker', OPTIONS_FRAMEWORK_DIRECTORY.'js/colorpicker.js', array('jquery'));
-	wp_enqueue_script('options-custom', OPTIONS_FRAMEWORK_DIRECTORY.'js/options-custom.js', array('jquery'));
+	add_action( 'admin_head', 'of_admin_head' );
 }
 
 function of_admin_head() {
-
 	// Hook to add custom scripts
 	do_action( 'optionsframework_custom_scripts' );
 }
@@ -223,67 +224,43 @@ function of_admin_head() {
  *
  */
 
-if ( !function_exists( 'optionsframework_page' ) ) {
+if ( !function_exists( 'optionsframework_page' ) ) :
 function optionsframework_page() {
-	$return = optionsframework_fields();
-	settings_errors();
-	?>
-    
-	<div class="wrap">
-	<?php echo get_screen_icon( $screen = 'settings'); ?> 
-		<div class="extern-links">
-			<a class="icon-a icon-gallery" href='#' ><span class="icon"><span>Themes gallery</span></span></a>
-			<a class="icon-a icon-support" href='#' ><span class="icon"><span>Support</span></span></a>
-			<a class="icon-a icon-documentation" href='#' ><span class="icon"><span>Documentation</span></span></a>
-		</div>
-		<br class="clear" /> 
+	settings_errors(); ?>
 
+	<div id="optionsframework-wrap" class="wrap">
+    <?php screen_icon( 'themes' ); ?>
     <h2 class="nav-tab-wrapper">
-        <?php echo $return[1]; ?>
+        <?php echo optionsframework_tabs(); ?>
     </h2>
-    
-    <div class="metabox-holder">
 
-
-
-    <div id="optionsframework" class="postbox">
-
-		<form action="options.php" method="post"> 
-		<?php settings_fields('optionsframework'); ?>
-
-
-		<?php /* Top buttons */ ?>
-		<div id="optionsframework-submit">
-			<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options' ); ?>" />
-            <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!' ) ); ?>' );" />
-            <div class="clear"></div>
-		</div>
-
-		<?php echo $return[0]; /* Settings */ ?>
-        
-        <?php /* Bottom buttons */ ?>
-        <div id="optionsframework-submit">
-			<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options' ); ?>" />
-            <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!' ) ); ?>' );" />
-            <div class="clear"></div>
-		</div>
-	</form>
-</div> <!-- / #container -->
-</div>
-</div> <!-- / .wrap -->
-
+    <div id="optionsframework-metabox" class="metabox-holder">
+	    <div id="optionsframework" class="postbox">
+			<form action="options.php" method="post">
+			<?php settings_fields('optionsframework'); ?>
+			<?php optionsframework_fields(); /* Settings */ ?>
+			<div id="optionsframework-submit">
+				<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'options_framework_theme' ); ?>" />
+				<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'options_framework_theme' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'options_framework_theme' ) ); ?>' );" />
+				<div class="clear"></div>
+			</div>
+			</form>
+		</div> <!-- / #container -->
+	</div>
+	<?php do_action('optionsframework_after'); ?>
+	</div> <!-- / .wrap -->
+	
 <?php
 }
-}
+endif;
 
-/** 
+/**
  * Validate Options.
  *
  * This runs after the submit/reset button has been clicked and
  * validates the inputs.
  *
- * @uses $_POST['reset']
- * @uses $_POST['update']
+ * @uses $_POST['reset'] to restore default options
  */
 function optionsframework_validate( $input ) {
 
@@ -294,59 +271,66 @@ function optionsframework_validate( $input ) {
 	 * button, the options defined in the theme's options.php
 	 * file will be added to the option for the active theme.
 	 */
-	 
+
 	if ( isset( $_POST['reset'] ) ) {
-		add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'optionsframework' ), 'updated fade' );
+		add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'options_framework_theme' ), 'updated fade' );
 		return of_get_default_values();
 	}
-
+	
 	/*
-	 * Udpdate Settings.
+	 * Update Settings
+	 *
+	 * This used to check for $_POST['update'], but has been updated
+	 * to be compatible with the theme customizer introduced in WordPress 3.4
 	 */
 	 
-	if ( isset( $_POST['update'] ) ) {
-		$clean = array();
-		$options = optionsframework_options();
-		foreach ( $options as $option ) {
+	$clean = array();
+	$options = optionsframework_options();
+	foreach ( $options as $option ) {
 
-			if ( ! isset( $option['id'] ) ) {
-				continue;
-			}
+		if ( ! isset( $option['id'] ) ) {
+			continue;
+		}
 
-			if ( ! isset( $option['type'] ) ) {
-				continue;
-			}
+		if ( ! isset( $option['type'] ) ) {
+			continue;
+		}
 
-			$id = preg_replace( '/[^a-zA-Z0-9._\-]/', '', strtolower( $option['id'] ) );
+		$id = preg_replace( '/[^a-zA-Z0-9._\-]/', '', strtolower( $option['id'] ) );
 
-			// Set checkbox to false if it wasn't sent in the $_POST
-			if ( 'checkbox' == $option['type'] && ! isset( $input[$id] ) ) {
-				$input[$id] = '0';
-			}
+		// Set checkbox to false if it wasn't sent in the $_POST
+		if ( 'checkbox' == $option['type'] && ! isset( $input[$id] ) ) {
+			$input[$id] = false;
+		}
 
-			// Set each item in the multicheck to false if it wasn't sent in the $_POST
-			if ( 'multicheck' == $option['type'] && ! isset( $input[$id] ) ) {
-				foreach ( $option['options'] as $key => $value ) {
-					$input[$id][$key] = '0';
-				}
-			}
-
-			// For a value to be submitted to database it must pass through a sanitization filter
-			if ( has_filter( 'of_sanitize_' . $option['type'] ) ) {
-				$clean[$id] = apply_filters( 'of_sanitize_' . $option['type'], $input[$id], $option );
+		// Set each item in the multicheck to false if it wasn't sent in the $_POST
+		if ( 'multicheck' == $option['type'] && ! isset( $input[$id] ) ) {
+			foreach ( $option['options'] as $key => $value ) {
+				$input[$id][$key] = false;
 			}
 		}
 
-		add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'optionsframework' ), 'updated fade' );
-		return $clean;
+		// For a value to be submitted to database it must pass through a sanitization filter
+		if ( has_filter( 'of_sanitize_' . $option['type'] ) ) {
+			$clean[$id] = apply_filters( 'of_sanitize_' . $option['type'], $input[$id], $option );
+		}
 	}
-
-	/*
-	 * Request Not Recognized.
-	 */
 	
-	return of_get_default_values();
+	// Hook to run after validation
+	do_action( 'optionsframework_after_validate', $clean );
+	
+	return $clean;
 }
+
+/**
+ * Display message when options have been saved
+ */
+ 
+function optionsframework_save_options_notice() {
+	add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'options_framework_theme' ), 'updated fade' );
+}
+
+add_action( 'optionsframework_after_validate', 'optionsframework_save_options_notice' );
 
 /**
  * Format Configuration Array.
@@ -385,19 +369,17 @@ function of_get_default_values() {
 /**
  * Add Theme Options menu item to Admin Bar.
  */
- 
-add_action( 'wp_before_admin_bar_render', 'optionsframework_adminbar' );
 
 function optionsframework_adminbar() {
-	
+
 	global $wp_admin_bar;
-	
+
 	$wp_admin_bar->add_menu( array(
-		'parent' => 'appearance',
-		'id' => 'of_theme_options',
-		'title' => __( 'Theme Options' ),
-		'href' => admin_url( 'themes.php?page=options-framework' )
-  ));
+			'parent' => 'appearance',
+			'id' => 'of_theme_options',
+			'title' => __( 'Theme Options', 'options_framework_theme' ),
+			'href' => admin_url( 'themes.php?page=options-framework' )
+		));
 }
 
 if ( ! function_exists( 'of_get_option' ) ) {

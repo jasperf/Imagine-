@@ -8,26 +8,7 @@ jQuery(document).ready(function($) {
 	// Fade out the save message
 	$('.fade').delay(1000).fadeOut(1000);
 	
-	// Color Picker
-	$('.colorSelector').each(function(){
-		var Othis = this; //cache a copy of the this variable for use inside nested function
-		var initialColor = $(Othis).next('input').attr('value');
-		$(this).ColorPicker({
-		color: initialColor,
-		onShow: function (colpkr) {
-		$(colpkr).fadeIn(500);
-		return false;
-		},
-		onHide: function (colpkr) {
-		$(colpkr).fadeOut(500);
-		return false;
-		},
-		onChange: function (hsb, hex, rgb) {
-		$(Othis).children('div').css('backgroundColor', '#' + hex);
-		$(Othis).next('input').attr('value','#' + hex);
-	}
-	});
-	}); //end color picker
+	$('.of-color').wpColorPicker();
 	
 	// Switches option sections
 	$('.group').hide();
@@ -67,6 +48,15 @@ jQuery(document).ready(function($) {
 		$('.group').hide();
 		$(clicked_group).fadeIn();
 		evt.preventDefault();
+		
+		// Editor Height (needs improvement)
+		$('.wp-editor-wrap').each(function() {
+			var editor_iframe = $(this).find('iframe');
+			if ( editor_iframe.height() < 30 ) {
+				editor_iframe.css({'height':'auto'});
+			}
+		});
+	
 	});
            					
 	$('.group .collapsed input:checkbox').click(unhideHidden);
