@@ -1,17 +1,15 @@
 <?php
+/* 
+ * Loads the Options Panel
+ *
+ * If you're loading from a child theme use stylesheet_directory
+ * instead of template_directory
+ */
+ 
 if ( !function_exists( 'optionsframework_init' ) ) {
-
-  /* 
-   * Loads the Options Panel
-   *
-   * If you're loading from a child theme use stylesheet_directory
-   * instead of template_directory
-   */
-
-  if ( !function_exists( 'optionsframework_init' ) ) {
-  	define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
-  	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
-  }
+	define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+}
 /* 
  * Turns off the default options panel from Twenty Eleven
  */
@@ -185,7 +183,7 @@ add_theme_support( 'custom-header', array(
 ) );
 } else {
 add_theme_support( 'custom-header', array( 'random-default' => true ) );
-//WP Custom Header - random roation by default
+//WP Custom Header - random rotation by default
 define( 'HEADER_TEXTCOLOR', '' );
 define( 'HEADER_IMAGE', '' );
 define( 'HEADER_IMAGE_HEIGHT', '200' );
@@ -200,5 +198,22 @@ register_default_headers( array(
 'description' => 'Header Image 1'
 )
 ) );
+}
+
+//http://codex.wordpress.org/Adding_Administration_Menus
+//<?php add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+add_action( 'admin_menu'  , 'my_plugin_menu' );
+
+function my_plugin_menu() {
+	add_options_page( 'My Plugin Options', 'My Plugin', 'manage_options', 'my-unique-identifier', 'my_plugin_options' );
+}
+
+function my_plugin_options() {
+	if ( !current_user_can( 'manage_options' ) )  {
+		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+	}
+	echo '<div class="wrap">';
+	echo '<p>Here is where the form would go if I actually had options.</p>';
+	echo '</div>';
 }
 ?>
