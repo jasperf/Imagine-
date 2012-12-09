@@ -50,7 +50,7 @@
 </head>
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content">Skip to content</a></div>
-	<div id="social-header"><div id="hireme"><a>F</a></div></div>
+	<div id="social-header"><div id="hireme"><a href="<?php echo of_get_option('voorbeeld_teksts_kleintje_pils'); ?>">F</a></div></div>
 	<div id="header" class="clear">
 		
 			      		<?php
