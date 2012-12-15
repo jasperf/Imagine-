@@ -120,6 +120,7 @@ function optionsframework_options() {
 		'id' => 'example_text',
 		'std' => 'Default Value',
 		'type' => 'text');
+		
 
 	$options[] = array(
 		'name' => __('Textarea', 'options_framework_theme'),
@@ -284,6 +285,19 @@ function optionsframework_options() {
 		'id' => 'example_editor',
 		'type' => 'editor',
 		'settings' => $wp_editor_settings );
+
+  	$options[] = array(
+  		'name' => __('Nog eentje', 'options_framework_theme'),
+  		'type' => 'heading' );
+  	
+  	$options[] = array(
+    		'name' => __('Input Text Kleintje Pils', 'options_framework_theme'),
+    		'desc' => __('A mini text input field.', 'options_framework_theme'),
+    		'id' => 'voorbeeld_teksts_kleintje_pils',
+    		'std' => 'Standaard',
+    		'class' => 'kleintje',
+    		'type' => 'text');
+      
 
 	return $options;
 }
