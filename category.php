@@ -6,7 +6,8 @@
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
 		<div class="entry page clear">
-<h1 class="pagetitle"><?php printf(__ ( 'Posts from the  &#8216;%s&#8217; Category', 'img'), single_cat_title('', false)); ?></h1>		</div><!--end entry-->
+<h1 class="pagetitle">
+<?php printf(__ ( 'Posts from the  &#8216;%s&#8217; Category', 'img'), single_cat_title('', false)); ?></h1>		</div><!--end entry-->
 	<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
 	<?php else : ?>
 	<?php endif; ?>

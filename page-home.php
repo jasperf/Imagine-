@@ -51,7 +51,6 @@ jQuery(window).load(function() {
 
   </div>
   
-	<div id="head-right-block"></div>
 	</div> <!-- end slider wrapper -->
 	</div> <!-- end header -->
 	<div class="content-background">

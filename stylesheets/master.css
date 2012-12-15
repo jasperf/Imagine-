@@ -680,7 +680,7 @@ Slider Styling
 
 #slider-wrapper {
   width:1000px;
-  height: 300px;
+  height:350px;
   background-color: #FFF;
   margin: 30px auto;
 }
@@ -690,10 +690,10 @@ Slider Styling
     border-color: #A9A9A9;
     border-style: solid;
     border-width: 1px;
-    margin: 30px 0 30px 30px;
+    margin: 30px 0 30px 20px;
     float: left;
-    width: 618px;
-    height:246px;
+    width: 950px;
+    height:300px;
 }
 /* ---------------------------------------------------
 End Slider Styling
