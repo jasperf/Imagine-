@@ -855,15 +855,6 @@ ul li.widget ul li ul li { padding: 1px 0 0 0; }
 	font-size: 1.2em;
 	line-height: 1.5em;
 }
-	
-/*#footer-recent ul, #footer-latest ul {
-		list-style-image: url('../images/bullet.png');
-		list-style-type: disc;
-		list-style-position:inside;
-		margin:15px 0
-		
-}
-*/
 
 
 #footer-recent ul, #footer-latest ul
@@ -878,7 +869,7 @@ margin: 0;
 background-image: url('../images/bullet.gif');
 background-repeat: no-repeat;
 background-position: 0.2em 50%;
-padding-left: 1em;
+/*padding-left: 1em;*/
 }
 
 
