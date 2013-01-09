@@ -35,6 +35,7 @@ if ( function_exists( 'add_theme_support' ) )
 
 
 // Dynamic Sidebars
+
 if ( function_exists( 'register_sidebar_widget' ))
 		register_sidebar(array(
 				'name'=> __( 'Sidebar', 'img'),
@@ -45,13 +46,34 @@ if ( function_exists( 'register_sidebar_widget' ))
 				'after_title' => '</h2>',
 		));
 
+    if ( function_exists( 'register_sidebar_widget' ))
+    		register_sidebar(array(
+    				'name'=> __( 'Footer Left', 'img'),
+    				'id' => 'footer_left',
+    				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    				'after_widget' => '</li>',
+    				'before_title' => '<h2>',
+    				'after_title' => '</h2>',
+    		));
+
+
+    if ( function_exists( 'register_sidebar_widget' ))
+    		register_sidebar(array(
+    				'name'=> __( 'Footer Center', 'img'),
+    				'id' => 'footer_center',
+    				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    				'after_widget' => '</li>',
+    				'before_title' => '<h2>',
+    				'after_title' => '</h2>',
+    		));
+
 if ( function_exists( 'register_sidebar_widget' ))
 		register_sidebar(array(
-				'name'=> __( 'Footer', 'img'),
-				'id' => 'footer_sidebar',
+				'name'=> __( 'Footer Right', 'img'),
+				'id' => 'footer_right',
 				'before_widget' => '<li id="%1$s" class="widget %2$s">',
 				'after_widget' => '</li>',
-				'before_title' => '<h2 class="widgettitle">',
+				'before_title' => '<h2>',
 				'after_title' => '</h2>',
 		));
 
@@ -68,34 +90,6 @@ if ( function_exists( 'register_sidebar_widget' ))
 				'after_title' => '</h2>',
 		));		
 
-if ( function_exists( 'register_sidebar_widget' ))
-		register_sidebar(array(
-				'name'=> __( 'CMS', 'img'),
-				'id' => 'home_cms',
-				'before_widget' => '<div id="cms-home-box"><li id="%1$s" class="widget %2$s">',
-				'after_widget' => '</li></div>',
-				'before_title' => '<h2 class="widgettitle">',
-					'after_title' => '</h2>',
-		));
-
-if ( function_exists( 'register_sidebar_widget' ))
-		register_sidebar(array(
-				'name'=> __( 'SEO', 'img'),
-				'id' => 'home_seo',
-				'before_widget' => '<div id="seo-home-box"><li id="%1$s" class="widget %2$s">',
-				'after_widget' => '</li></div>',
-				'before_title' => '<h2 class="widgettitle">',
-				'after_title' => '</h2>',
-			));			
-if ( function_exists( 'register_sidebar_widget' ))
-		register_sidebar(array(
-				'name'=> __( 'Referenties', 'img'),
-				'id' => 'home_referenties',
-				'before_widget' => '<div id="referenties-home-box"><li id="%1$s" class="widget %2$s">',
-				'after_widget' => '</li></div>',
-				'before_title' => '<h2 class="widgettitle">',
-				'after_title' => '</h2>',
-			));
 
 if ( function_exists( 'register_sidebar_widget' ))
 		register_sidebar(array(
