@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+    <?php get_header(); ?>
 <div class="content-background">
 	<div class="contentwrapper">
 		<div class="notice"></div>
@@ -37,8 +37,6 @@
 								echo "<br>".$technology;
 							}
 						}
-
-					//	print_r( 		get_post_meta($post->ID, "_mcf_technologie", false) ) 
 						?>
 					</div>
 				<?php } ?>

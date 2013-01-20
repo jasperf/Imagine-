@@ -4,6 +4,7 @@
 <head>
 		<title><?php wp_title($sep = ''); ?> | <?php bloginfo( 'name');?></title>
 	<!-- Basic Meta Data -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="<?php if ( (is_home()) || (is_front_page()) ) {
 	    echo ('Your main description goes here');
 	} elseif(is_category()) {
@@ -25,14 +26,6 @@
 
 	<!--Stylesheets-->
 	<link href="<?php bloginfo( 'stylesheet_url'); ?>" type="text/css" media="screen" rel="stylesheet" />
-	
-
-	<!--[if lte IE 6]>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo( 'template_url'); ?>/stylesheets/ie6.css" />
-	<![endif]-->
-	<!--[if lte IE 8]>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo( 'template_url'); ?>/stylesheets/ie.css" />
-	<![endif]-->
 
 	<style type="text/css">
 	div#title {
@@ -43,7 +36,7 @@
 	<!--WordPress-->
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name'); ?> RSS Feed" href="<?php bloginfo( 'rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url'); ?>" />
-
+  <?php wp_enqueue_script("jquery"); ?>
 	<!--WP Hook  Threaded Comments-->
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<?php wp_head(); ?>
@@ -65,22 +58,44 @@
                 </a></div>
                 <?php endif;?>
             	</div>
-			<div id="menuwrapper">
-			<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
-						  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
-					<?php } 
-						 else { ?>
-							<div id="navigation"><ul class="nav">
-							<?php wp_list_pages( 'title_li=' ); ?>
-								</ul></div><!--end navigation-->
+			        <div class="navbar navbar-inverse">
+                  <div class="navbar-inner">
+                    <div class="container">
+                      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </a>
+                      <a class="brand hidden-desktop" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                      <div class="nav-collapse collapse">
+                        <ul class="nav">
 
-					<?php	} ?>
-					<?php if ( has_nav_menu( 'secondary-menu' ) ) { ?>
-								  <?php wp_nav_menu(array('theme_location' => 'secondary-menu', 'container_id' => 'subnavigation', 'menu_class' => 'nav')); ?>
-							<?php } 
-								 else { ?>
-									
-							<?php	} ?>
-						</div> <!-- End Menu wrapper -->
+                            <?php wp_list_pages(array('title_li' => '', 'exclude' => 4)); ?>
+
+                        </ul>
+                      </div><!--/.nav-collapse -->
+                    </div>
+                  </div>
+                </div>
+      <?php /*
+      <div id="menuwrapper">
+      <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
+      			  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
+      		<?php } 
+      			 else { ?>
+      				<div id="navigation">
+      				<ul class="nav">
+      				<?php wp_list_pages( 'title_li=' ); ?>
+      					</ul></div><!--end navigation-->
+
+      		<?php	} ?>
+      		<?php if ( has_nav_menu( 'secondary-menu' ) ) { ?>
+      					  <?php wp_nav_menu(array('theme_location' => 'secondary-menu', 'container_id' => 'subnavigation', 'menu_class' => 'nav')); ?>
+      				<?php } 
+      					 else { ?>
+
+      				<?php	} ?>
+      			</div> <!-- End Menu wrapper -->
+      			*/?>
 			
 		</div><!--end Header Top-->

@@ -9,6 +9,20 @@
 	lot easier when it comes time to upgrade the theme.
 */
 
+
+
+
+@import url('../bootstrap/css/bootstrap.css'); 
+@import url('../bootstrap/css/bootstrap-responsive.css'); 
+body { 
+     padding-top: 60px; 
+     padding-bottom: 40px; 
+}
+
+
+Read more: How to Build a Responsive WordPress Theme with Bootstrap http://blog.teamtreehouse.com/responsive-wordpress-bootstrap-theme-tutorial#ixzz2IUsazGEB
+Read more:
+
 /*Undo browser defaults
 ------------------------------------------------------------ */
 :link,:visited { text-decoration: none; }
@@ -34,8 +48,8 @@ body {
 	color: #444;
 	line-height: 2.2em;
 	background: #E0E0E0;
-	min-width: 960px;
-}
+/*  min-width: 960px;
+*/}
 a:link, a:visited { color: #4265a7; }
 .entry a:link, .entry a:visited { font-weight: bold; }
 a:hover { color: #993333; }
@@ -43,14 +57,14 @@ a:hover { color: #993333; }
 /*Basic Structure
 ------------------------------------------------------------ */
 .header-top {
-	width: 1000px;
-	margin: 0 auto;
+/*  width: 1000px;
+*/	margin: 0 auto;
 	text-align: left;
 }
 
 .header-top-with-image {
-  width: 1000px;
-	height:220px;
+/*  width: 1000px;
+*/	height:220px;
 	padding:0;
 	margin: 0 0 10px 0;
 }
@@ -60,8 +74,8 @@ a:hover { color: #993333; }
 }
 
 .contentwrapper{
-	width: 1000px;
-	margin: 0 auto;
+/*  width: 1000px;
+*/	margin: 0 auto;
 	text-align: left;
 	background:#FFFFFF;
 	margin: 30px auto;
@@ -114,8 +128,8 @@ div.skip-content { display: none; }
 /*Header
 ------------------------------------------------------------ */
 #header {
-	width:1000px;
-	/*height:177px;*/
+/*  width:1000px;
+*/	/*height:177px;*/
 	margin:0 auto;
 }
 
@@ -686,8 +700,8 @@ Slider Styling
 */
 
 #slider-wrapper {
-  width:1000px;
-  height:350px;
+/*  width:1000px;
+*/  height:350px;
   background-color: #FFF;
   margin: 30px auto;
 }
@@ -823,8 +837,8 @@ ul li.widget ul li ul li { padding: 1px 0 0 0; }
 /*	border-top: 10px solid #ded6d4;*/
 	background: #206676;
 	margin:0 auto;
-	width:940px;
-	color: #fff;
+/*  width:940px;
+*/	color: #fff;
 }
 #footer a:link, #footer a:visited { color: #fff; }
 #footer a:hover { text-decoration: underline; }
@@ -873,7 +887,7 @@ margin: 0;
 
 #footer-recent li, #footer-latest li
 {
-background-image: url('../images/bullet.gif');
+/*background-image: url('../images/bullet.gif');*/
 background-repeat: no-repeat;
 background-position: 0.2em 50%;
 /*padding-left: 1em;*/
@@ -1107,8 +1121,8 @@ padding:4px 8px;
 
 #social-header {
   margin:10px auto;
-  width:960px;
-  height:50px
+/*  width:960px;
+*/  height:50px
 }
 
 #hireme {

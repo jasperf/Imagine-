@@ -96,6 +96,18 @@
 }
 
 @media (min-width: 1200px) {
+  #slider-wrapper, .contentwrapper, .header-top, .header-top-with-image, .navbar {
+    width:1000px;
+  }
+  .navbar {
+    margin: 0 auto;
+  }
+  #footer {
+    width:940px;
+  }
+  #social-header {
+    width:960px;
+  }
   .row {
     margin-left: -30px;
     *zoom: 1;

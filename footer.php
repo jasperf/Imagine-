@@ -25,5 +25,8 @@
   		</div>  <!-- footer connect -->
 		</div>  <!-- end wrapper -->
 		</div> <!-- end footer -->
+		<!-- Bootstrap Javascripts -->
+        <script type="text/javascript" src="<?php bloginfo( 'stylesheet_directory'); ?>/bootstrap/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

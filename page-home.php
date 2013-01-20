@@ -20,7 +20,7 @@ jQuery(window).load(function() {
 		});
 });
 </script>
-<div id="slider-wrapper">
+<div id="slider-wrapper" class="visible-desktop">
   <div class="slider-wrapper theme-default">
               <div class="ribbon"></div>
               <div id="slider" class="nivoSlider">
