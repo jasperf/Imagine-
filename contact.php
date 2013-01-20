@@ -69,7 +69,7 @@ if(isset($_POST['submitted'])) {
 
 						<form action="<?php the_permalink(); ?>" id="contactForm" method="post">
 							<ul class="contactform">
-							<li>
+							<li class="contactname">
 								<label for="contactName">Name:</label>
 								<input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="required requiredField" />
 								<?php if($nameError != '') { ?>
@@ -77,8 +77,8 @@ if(isset($_POST['submitted'])) {
 								<?php } ?>
 							</li>
 
-							<li>
-								<label for="email">Email</label>
+							<li class="contactemail">
+								<label for="email">Email:</label>
 								<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="required requiredField email" />
 								<?php if($emailError != '') { ?>
 									<span class="error"><?=$emailError;?></span>
@@ -86,7 +86,7 @@ if(isset($_POST['submitted'])) {
 							</li>
 
 							<li>
-								<textarea name="comments" id="commentsText" rows="20" cols="30" class="required requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
+								<textarea name="comments" id="commentsText" rows="10" cols="30" class="required requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
 								<?php if($commentError != '') { ?>
 									<span class="error"><?=$commentError;?></span>
 								<?php } ?>
@@ -99,8 +99,9 @@ if(isset($_POST['submitted'])) {
 						<input type="hidden" name="submitted" id="submitted" value="true" />
 					</form>
 					<div style="clear:left;"></div>
-				<?php } ?>
-				</div><!-- .entry-content -->		
+				<?php } ?>				
+				</div><!-- .entry-content -->	
+					
 				<?php endwhile; endif; ?>
 				</div><!-- End content background -->
 				</div><!-- End contentwrapper -->
