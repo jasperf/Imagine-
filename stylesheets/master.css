@@ -631,11 +631,18 @@ input.text-input, form#commentform textarea {
 	width: 477px;
 }
 
+li.contactname, li.contactemail {
+  width:350px;
+}
+
 #commentsText {
-	background:#EDE7E0;
+	background:#444444;
 	width: 500px;
+	color:white;
+	font-size: 2em;
 	border-radius: 5px 5px 5px 5px;
 	float:left;
+	margin-left: 50px;
 }
 
 li#sendit, #labelmessage {
