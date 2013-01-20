@@ -68,34 +68,22 @@
                       </a>
                       <a class="brand hidden-desktop" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
                       <div class="nav-collapse collapse">
-                        <ul class="nav">
+                      <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
+                      			  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
+                      		<?php } 
+                      			 else { ?>
+                      				<div id="navigation">
+                      				<ul class="nav">
+                      				<?php wp_list_pages( 'title_li=' ); ?>
+                      					</ul></div><!--end navigation-->
 
-                            <?php wp_list_pages(array('title_li' => '', 'exclude' => 4)); ?>
+                      		<?php	} ?>
+                      		<?php if ( has_nav_menu( 'secondary-menu' ) ) { ?>
+                      					  <?php wp_nav_menu(array('theme_location' => 'secondary-menu', 'container_id' => 'subnavigation', 'menu_class' => 'nav')); ?>
+                      				<?php } 
+                      					 else { ?>
 
-                        </ul>
-                      </div><!--/.nav-collapse -->
-                    </div>
-                  </div>
-                </div>
-      <?php /*
-      <div id="menuwrapper">
-      <?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
-      			  <?php wp_nav_menu(array('theme_location' => 'primary-menu', 'container_id' => 'navigation', 'menu_class' => 'nav')); ?>
-      		<?php } 
-      			 else { ?>
-      				<div id="navigation">
-      				<ul class="nav">
-      				<?php wp_list_pages( 'title_li=' ); ?>
-      					</ul></div><!--end navigation-->
-
-      		<?php	} ?>
-      		<?php if ( has_nav_menu( 'secondary-menu' ) ) { ?>
-      					  <?php wp_nav_menu(array('theme_location' => 'secondary-menu', 'container_id' => 'subnavigation', 'menu_class' => 'nav')); ?>
-      				<?php } 
-      					 else { ?>
-
-      				<?php	} ?>
-      			</div> <!-- End Menu wrapper -->
-      			*/?>
-			
+                      				<?php	} ?>
+                        </div></div>
+      
 		</div><!--end Header Top-->
