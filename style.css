@@ -9,7 +9,7 @@ Tags: fixed-width, two-columns, white, brown, right-sidebar, threaded-comments, 
 */
 
 /*
-	Copyright (C) 2008 - 2012 Imagewize
+	Copyright (C) 2008 - 2013 Imagewize
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@ Tags: fixed-width, two-columns, white, brown, right-sidebar, threaded-comments, 
 
 /* Import Stylesheets
 -----------------------------------------------------------*/
+@import url('bootstrap/css/bootstrap.css'); 
+@import url('bootstrap/css/bootstrap-responsive.css');
 @import url("stylesheets/master.css");
 
 /* Required WordPress Classes, don't remove these.

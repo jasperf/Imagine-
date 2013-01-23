@@ -16,7 +16,7 @@
 	<?php endif; ?>
 </div><!--end content-->
 	<?php if ( !dynamic_sidebar('Sidebar') ) : ?>
-	   <div class="page-sidebar">
+	   <div class="page-sidebar visible-desktop">
 	<?php
 	//http://wordpress.org/support/topic/2-or-3-column-categories-in-sidebar?replies=39
 	$get_cats = wp_list_categories( 'echo=0&title_li=&depth=1&hide_empty=0' );

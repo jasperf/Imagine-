@@ -70,9 +70,8 @@ jQuery(window).load(function() {
 	<?php else : ?>
 	<?php endif; ?>
 </div><!--end content-->
-<?php //get_sidebar(); ?>
 <?php // Two rows with three widgets ?>
-<div id="contact-us-box">
+<div id="contact-us-box" class="visible-desktop">
 <h2>Vraag een offerte aan!</h2>
 <p>Vragen of meteen een offerte aanvragen?</p>
 <p>Neem dan contact met ons op.</p>
@@ -80,6 +79,6 @@ jQuery(window).load(function() {
 <p><a href="<?php bloginfo('url'); ?>/contact">Email ons</a></p>
 </div>
 <div style="clear:left;"></div>
-<?php get_sidebar('home'); ?>
+<?php get_footer('home'); ?>
 	
-<?php get_footer(); ?>
+<?php get_footer(); ?>; ?>
