@@ -220,4 +220,7 @@ function wpbootstrap_scripts_with_jquery()
 }
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 
+// Register Custom Navigation Walker
+//https://github.com/twittem/wp-bootstrap-navwalker
+require_once('inc/twitter_bootstrap_nav_walker.php');
 ?>

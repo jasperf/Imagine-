@@ -350,7 +350,7 @@ left: -999em;
 /*Show Submenu and keep it until mouseout*/
    .nav li:hover ul, .nav li li:hover ul, .nav li li li:hover ul, .nav li li li li:hover ul, 
    .nav li.sfhover ul, .nav li li.sfhover ul, .nav li li li.sfhover ul, .nav li li li li.sfhover ul,.sub-menu:hover {
-left: auto;
+left: auto ;
 }
 
 .nav li:hover, .nav li.sfhover {
