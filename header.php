@@ -41,7 +41,6 @@ if ((is_home()) || (is_front_page())) {
             <!--WordPress-->
             <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php wp_enqueue_script("jquery"); ?>
             <!--WP Hook  Threaded Comments-->
 <?php if (is_singular()) wp_enqueue_script('comment-reply'); ?>
 <?php wp_head(); ?>

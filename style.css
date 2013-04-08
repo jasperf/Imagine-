@@ -44,3 +44,8 @@ Tags: fixed-width, two-columns, white, brown, right-sidebar, threaded-comments, 
 /* Make all custom CSS changes in a child theme. Any custom
 changes you make here will not be overidden when you upgrade the theme.
 -----------------------------------------------------------*/
+
+
+.navbar .nav {
+    position:static; /*Bootstrap Menu Confict Fix*/
+  }
