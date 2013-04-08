@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <div class="content-background">
-	<div class="contentwrapper">
-		<div class="notice"></div>
+	<div id="container">
 		<div id="content">
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
@@ -16,7 +15,7 @@
 	<?php endif; ?>
 </div><!--end content-->
 	<?php if ( !dynamic_sidebar('Sidebar') ) : ?>
-	   <div class="page-sidebar visible-desktop">
+	   <div class="page-sidebar visible-desktop" id="sidebar">
 	<?php
 	//http://wordpress.org/support/topic/2-or-3-column-categories-in-sidebar?replies=39
 	$get_cats = wp_list_categories( 'echo=0&title_li=&depth=1&hide_empty=0' );
@@ -53,6 +52,6 @@
 	echo '</ul>';
 	?>
 	<?php endif; ?>
-	</div>
+	</div> <! end sidebar -->
 <div style="clear:left;"></div>
 <?php get_footer(); ?>

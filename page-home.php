@@ -3,7 +3,6 @@
 Template Name: Thuis
 */
 ?>
-<?php wp_enqueue_script('jquery'); ?>
 <?php get_header(); ?>
 <!-- Include the Nivo Slider CSS file -->
     <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/scripts/nivoslider/themes/default/default.css" type="text/css" media="screen" />
@@ -20,6 +19,7 @@ jQuery(window).load(function() {
 		});
 });
 </script>
+
 <div id="slider-wrapper" class="visible-desktop">
   <div class="slider-wrapper theme-default">
               <div class="ribbon"></div>
@@ -54,9 +54,37 @@ jQuery(window).load(function() {
 	</div> <!-- end slider wrapper -->
 	</div> <!-- end header -->
 	<div class="content-background">
-	
-		<div class="contentwrapper">
-			<div class="notice"></div>
+		<div class="boxes">
+			<?php 
+			if (! is_active_sidebar ('left-home-box')
+			  && ! is_active_sidebar( 'center-home-box' )
+			  && ! is_active_sidebar( 'right-home-box' )
+			  )
+			  echo
+		'<div id="left-home-box"></div>
+		<div id="center-home-box"></div>
+		<div id="right-home-box"></div>'
+		;?>
+
+    <?php if ( is_active_sidebar('left-
+    home-box') ) : ?>
+          <?php dynamic_sidebar( 'left-home-box' ); ?>
+    		<?php endif; ?>
+    
+    <?php if ( is_active_sidebar('center-
+        home-box') ) : ?>
+              <?php dynamic_sidebar( 'center-home-box' ); ?>
+        		<?php endif; ?>
+    
+    <?php if ( is_active_sidebar('right-
+            home-box') ) : ?>
+                  <?php dynamic_sidebar( 'right-home-box' ); ?>
+            		<?php endif; ?>
+		
+		</div>
+
+		<div id="container">
+				
 			<div id="content">	
 	<?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
@@ -81,4 +109,4 @@ jQuery(window).load(function() {
 <div style="clear:left;"></div>
 <?php get_footer('home'); ?>
 	
-<?php get_footer(); ?>; ?>
+<?php get_footer(); ?>

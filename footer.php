@@ -1,6 +1,5 @@
 <?php global $img; ?>
-</div><!--end wrapper-->
-</div><!--end content-background-->
+</div><!--end content-->
 <div id="footer">
 	<div class="wrapper clear">
 		<div id="footer-recent" class="footer-column">

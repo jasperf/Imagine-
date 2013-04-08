@@ -33,6 +33,40 @@ if ( function_exists( 'add_theme_support' ) )
 	add_theme_support( 'post-thumbnails' );
 //	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 
+// Homepage widgets
+	
+
+if ( function_exists( 'register_sidebar_widget' ))
+		register_sidebar(array(
+				'name'=> __( 'Home Left', 'img'),
+				'id' => 'left-home-box',
+				'before_widget' => '<div id="left-home-box"><li id="%1$s" class="widget %2$s">',
+				'after_widget' => '</li></div>',
+				'before_title' => '<h2 class="widgettitle">',
+				'after_title' => '</h2>',
+		));		
+
+
+if ( function_exists( 'register_sidebar_widget' ))
+		register_sidebar(array(
+				'name'=> __( 'Home Center', 'img'),
+				'id' => 'center-home-box',
+				'before_widget' => '<div id="center-home-box"><li id="%1$s" class="widget %2$s">',
+				'after_widget' => '</li></div>',
+				'before_title' => '<h2 class="widgettitle">',
+				'after_title' => '</h2>',
+			));
+
+if ( function_exists( 'register_sidebar_widget' ))
+      register_sidebar(array(
+      		'name'=> __( 'Home Right', 'img'),
+      		'id' => 'right-home-box',
+      		'before_widget' => '<div id="right-home-box"><li id="%1$s" class="widget %2$s">',
+      		'after_widget' => '</li></div>',
+      		'before_title' => '<h2 class="widgettitle">',
+      		'after_title' => '</h2>',
+      			));
+
 
 // Dynamic Sidebars
 
@@ -45,6 +79,9 @@ if ( function_exists( 'register_sidebar_widget' ))
 				'before_title' => '<h2 class="widgettitle">',
 				'after_title' => '</h2>',
 		));
+		
+// Footer Sidebars
+
 
     if ( function_exists( 'register_sidebar_widget' ))
     		register_sidebar(array(
@@ -77,29 +114,6 @@ if ( function_exists( 'register_sidebar_widget' ))
 				'after_title' => '</h2>',
 		));
 
-// Homepage widgets
-	
-
-if ( function_exists( 'register_sidebar_widget' ))
-		register_sidebar(array(
-				'name'=> __( 'Webdesign', 'img'),
-				'id' => 'home_webdesign',
-				'before_widget' => '<div id="webdesign-home-box"><li id="%1$s" class="widget %2$s">',
-				'after_widget' => '</li></div>',
-				'before_title' => '<h2 class="widgettitle">',
-				'after_title' => '</h2>',
-		));		
-
-
-if ( function_exists( 'register_sidebar_widget' ))
-		register_sidebar(array(
-				'name'=> __( 'Tweets', 'img'),
-				'id' => 'home_tweets',
-				'before_widget' => '<div id="tweets-home-box"><li id="%1$s" class="widget %2$s">',
-				'after_widget' => '</li></div>',
-				'before_title' => '<h2 class="widgettitle">',
-				'after_title' => '</h2>',
-			));
 							
 // custom post type + menu item for it
 
