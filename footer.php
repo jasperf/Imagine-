@@ -26,6 +26,8 @@
 		</div>  <!-- end wrapper -->
 		</div> <!-- end footer -->
 		<!-- Bootstrap Javascripts -->
+		<script type="text/javascript" src="<?php bloginfo( 'stylesheet_directory'); ?>/bootstrap/js/bootstrap.min.js"></script>
+    
 		  <?php
          /* Always have wp_footer() just before the closing </body>
           * tag of your theme, or you will break many plugins, which
